@@ -23,6 +23,7 @@ plugin-dependencyUpdates = "0.46.0"
 plugin-google-firebase-appDistribution = "4.0.0"
 plugin-google-firebase-crashlytics = "2.9.4"
 plugin-google-ksp = "1.8.10-1.0.9"
+plugin-google-secrets = "2.0.1"
 plugin-google-services = "4.3.15"
 plugin-kotlinter = "3.13.0"
 plugin-playPublisher = "3.8.1"
@@ -39,6 +40,7 @@ dependencyUpdates = { id = "com.github.ben-manes.versions", version.ref = "plugi
 google-firebase-appDistribution = { id = "com.google.firebase.appdistribution", version.ref = "plugin-google-firebase-appDistribution" }
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "plugin-google-firebase-crashlytics" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "plugin-google-ksp" }
+google-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "plugin-google-secrets" }
 google-services = { id = "com.google.gms.google-services", version.ref = "plugin-google-services" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -155,6 +157,7 @@ plugin-dependencyUpdates = { module = "com.github.ben-manes:gradle-versions-plug
 plugin-google-firebase-appDistribution = { module = "com.google.firebase:firebase-appdistribution-gradle", version.ref = "plugin-google-firebase-appDistribution" }
 plugin-google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "plugin-google-firebase-crashlytics" }
 plugin-google-ksp = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version.ref = "plugin-google-ksp" }
+plugin-google-secrets = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "plugin-google-secrets" }
 plugin-google-services = { module = "com.google.gms:google-services", version.ref = "plugin-google-services" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }

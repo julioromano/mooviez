@@ -10,6 +10,7 @@ plugins {
   // TODO // id(libs.plugins.google.firebase.appDistribution.get().pluginId)
   // TODO // id(libs.plugins.playPublisher.get().pluginId)
   id(libs.plugins.dagger.hilt.get().pluginId)
+  id(libs.plugins.google.secrets.get().pluginId)
   id(libs.plugins.kotlinter.get().pluginId)
 }
 
@@ -120,7 +121,13 @@ hilt {
   enableAggregatingTask = true
 }
 
+secrets {
+  defaultPropertiesFileName = "local.defaults.properties"
+}
+
 dependencies {
+  implementation(projects.httpapi.implWiring)
+  implementation(projects.database.implWiring)
   implementation(projects.feature)
   implementation(libs.androidx.activityCompose)
   implementation(libs.androidx.core)
