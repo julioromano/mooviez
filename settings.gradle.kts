@@ -1,6 +1,6 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "skeleton"
+rootProject.name = "tmdb"
 
 pluginManagement {
   repositories {

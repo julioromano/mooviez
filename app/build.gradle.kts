@@ -15,7 +15,7 @@ plugins {
 }
 
 android {
-  namespace = "net.marcoromano.skeleton.app" // TODO: Change me!
+  namespace = "net.marcoromano.tmdb.app"
   // TODO: Uncomment after creating keystore.
   // signingConfigs {
   //     create("release") {
@@ -32,7 +32,7 @@ android {
   buildToolsVersion = libs.versions.android.buildTools.get()
   compileSdk = libs.versions.android.compileSdk.get().toInt()
   defaultConfig {
-    applicationId = "net.marcoromano.skeleton" // TODO: Change me!
+    applicationId = "net.marcoromano.tmdb"
     minSdk = libs.versions.android.minSdk.get().toInt()
     targetSdk = libs.versions.android.targetSdk.get().toInt()
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -128,7 +128,7 @@ secrets {
 dependencies {
   implementation(projects.httpapi.implWiring)
   implementation(projects.database.implWiring)
-  implementation(projects.feature)
+  implementation(projects.trending)
   implementation(libs.androidx.activityCompose)
   implementation(libs.androidx.core)
   implementation(libs.androidx.coreSplashscreen)

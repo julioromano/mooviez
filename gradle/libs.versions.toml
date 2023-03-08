@@ -178,6 +178,7 @@ square-okio = "com.squareup.okio:okio:3.3.0"
 square-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "square-retrofit" }
 square-retrofitConverterMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "square-retrofit" }
 square-sqlDelightAndroid = { module = "com.squareup.sqldelight:android-driver", version.ref = "square-sqlDelight" }
+square-sqlDelightAndroidPaging3 = { module = "com.squareup.sqldelight:android-paging3-extensions", version.ref = "square-sqlDelight" }
 square-sqlDelightCoroutines = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
 square-sqlDelightJvm = { module = "com.squareup.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
 square-turbine = "app.cash.turbine:turbine:0.12.1"

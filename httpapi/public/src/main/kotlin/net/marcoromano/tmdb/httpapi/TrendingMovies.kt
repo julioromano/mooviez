@@ -16,5 +16,6 @@ public data class TrendingMovies(
     val poster_path: String,
     val overview: String,
     val vote_average: Double,
+    val release_date: String,
   )
 }
