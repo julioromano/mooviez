@@ -28,7 +28,7 @@ public fun HttpApiImpl(
       }
       if (enableLogging) {
         addNetworkInterceptor(
-          HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY },
+          HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC },
         )
       }
     }.build(),

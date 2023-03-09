@@ -1,6 +1,5 @@
-package net.marcoromano.tmdb.trending
+package net.marcoromano.tmdb.trending.widgets.trending
 
-import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.compose.foundation.Image
@@ -9,12 +8,18 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,12 +31,61 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import net.marcoromano.tmdb.httpapi.TrendingMovies
 
 @Composable
-internal fun Movie(
+internal fun TrendingLazyVerticalGrid(
+  columns: GridCells,
+  modifier: Modifier = Modifier,
+  onMovieClick: (id: Long) -> Unit,
+) {
+  val vm = hiltViewModel<TrendingLazyVerticalGridViewModel>()
+  TrendingLazyVerticalGrid(
+    columns,
+    modifier,
+    vm.pager,
+    onMovieClick,
+  )
+}
+
+@Composable
+private fun TrendingLazyVerticalGrid(
+  columns: GridCells,
+  modifier: Modifier,
+  pager: Flow<PagingData<TrendingMovies.Movie>>,
+  onMovieClick: (id: Long) -> Unit,
+) {
+  val trendingPagingData = pager.collectAsLazyPagingItems()
+  LazyVerticalGrid(
+    columns = columns,
+    modifier = modifier,
+  ) {
+    items(trendingPagingData.itemCount) { index ->
+      val movie = trendingPagingData[index]
+      if (movie != null) {
+        Movie(
+          movie = movie,
+          navToDetail = { onMovieClick(it) },
+        )
+      } else {
+        Icon(
+          imageVector = Icons.Default.Error,
+          contentDescription = null,
+        )
+      }
+    }
+  }
+}
+
+@Composable
+private fun Movie(
   movie: TrendingMovies.Movie,
   navToDetail: (id: Long) -> Unit,
 ) {
@@ -87,10 +141,9 @@ internal fun Movie(
   }
 }
 
-@Preview(name = "Day mode")
-@Preview(name = "Night mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview
 @Composable
-private fun Preview() {
+private fun PreviewMovie() {
   Movie(
     movie = TrendingMovies.Movie(
       id = 0,
@@ -101,5 +154,37 @@ private fun Preview() {
       release_date = "2022-02-03",
     ),
     navToDetail = {},
+  )
+}
+
+@Preview
+@Composable
+private fun PreviewTrending() {
+  TrendingLazyVerticalGrid(
+    columns = GridCells.Fixed(2),
+    modifier = Modifier.fillMaxSize(),
+    pager = flowOf(
+      PagingData.from(
+        listOf(
+          TrendingMovies.Movie(
+            id = 0,
+            title = "A very long title that must be wrapped in multiple lines",
+            poster_path = "https://dummyimage.com/500x750/000/fff.jpg",
+            overview = "Once upon a time...",
+            vote_average = 1.2,
+            release_date = "2022-02-03",
+          ),
+          TrendingMovies.Movie(
+            id = 0,
+            title = "A very long title that must be wrapped in multiple lines",
+            poster_path = "https://dummyimage.com/500x750/000/fff.jpg",
+            overview = "Once upon a time...",
+            vote_average = 1.2,
+            release_date = "2022-02-03",
+          ),
+        ),
+      ),
+    ),
+    onMovieClick = {},
   )
 }
