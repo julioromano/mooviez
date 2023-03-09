@@ -129,6 +129,7 @@ dependencies {
   implementation(projects.httpapi.implWiring)
   implementation(projects.database.implWiring)
   implementation(projects.trending)
+  implementation(projects.movie)
   implementation(libs.androidx.activityCompose)
   implementation(libs.androidx.core)
   implementation(libs.androidx.coreSplashscreen)
