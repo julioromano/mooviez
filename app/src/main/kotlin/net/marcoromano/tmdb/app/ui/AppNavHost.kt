@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import net.marcoromano.tmdb.movie.MovieNavigation
 import net.marcoromano.tmdb.trending.TrendingNavigation
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -20,7 +21,11 @@ fun AppNavHost() {
   ) {
     TrendingNavigation.navGraphBuilder(
       navGraphBuilder = this,
-      navToDetail = { /* TODO() */ },
+      navToDetail = { MovieNavigation.navigate(navController, it) },
+    )
+    MovieNavigation.navGraphBuilder(
+      navGraphBuilder = this,
+      navBack = navController::popBackStack,
     )
   }
 }
