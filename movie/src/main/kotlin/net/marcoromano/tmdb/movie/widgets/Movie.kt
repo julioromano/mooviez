@@ -38,22 +38,24 @@ internal fun Movie(
     Box(
       contentAlignment = Alignment.Center,
     ) {
+      val contentScale = ContentScale.Crop
       Image(
         painter = rememberAsyncImagePainter(
           model = ImageRequest.Builder(LocalContext.current)
             .data("https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}")
             .size(width = 1280, height = 720)
+            .placeholder(ColorDrawable(Color.YELLOW)) // TODO: Make it better looking.
+            .error(android.R.drawable.ic_dialog_alert) // TODO: Can be better looking.
             .crossfade(true)
             .build(),
+          contentScale = contentScale,
         ),
         contentDescription = null,
         modifier = Modifier
           .height(340.dp)
           .fillMaxWidth()
           .alpha(0.5f),
-        // Don't use placeholders with a non default contentScale or there can be
-        // glitches: https://github.com/coil-kt/coil/issues/855
-        contentScale = ContentScale.Crop,
+        contentScale = contentScale,
       )
       Image(
         painter = rememberAsyncImagePainter(
