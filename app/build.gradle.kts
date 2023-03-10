@@ -143,6 +143,8 @@ dependencies {
   implementation(platform(libs.androidx.compose.bom))
   debugImplementation(libs.androidx.composeUiTestManifest)
   debugImplementation(libs.androidx.composeUiTooling)
+  releaseImplementation(platform(libs.google.firebase.bom))
+  releaseImplementation(libs.google.firebase.crashlytics)
   kapt(libs.google.daggerHiltCompiler)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.composeUiTestJunit4)

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "613195079771",
+    "project_id": "tmdb-explorer-bbf2a",
+    "storage_bucket": "tmdb-explorer-bbf2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613195079771:android:67d1b6616df0d59c9edf7e",
+        "android_client_info": {
+          "package_name": "net.marcoromano.tmdb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613195079771-5m56hfai0d4sbtrgo7rbaehv0vg2lfhq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhyWAOTU8800vwrQ9FhX0iV_vT7fAM0DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613195079771-5m56hfai0d4sbtrgo7rbaehv0vg2lfhq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
