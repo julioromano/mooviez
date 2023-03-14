@@ -1,4 +1,5 @@
 import com.android.build.api.variant.VariantOutputConfiguration
+import com.github.triplet.gradle.androidpublisher.ReleaseStatus
 import java.time.Instant
 
 plugins {
@@ -7,7 +8,7 @@ plugins {
   id(libs.plugins.kotlin.kapt.get().pluginId)
   id(libs.plugins.google.services.get().pluginId)
   id(libs.plugins.google.firebase.crashlytics.get().pluginId)
-  // TODO // id(libs.plugins.playPublisher.get().pluginId)
+  id(libs.plugins.playPublisher.get().pluginId)
   id(libs.plugins.dagger.hilt.get().pluginId)
   id(libs.plugins.google.secrets.get().pluginId)
   id(libs.plugins.kotlinter.get().pluginId)
@@ -101,14 +102,12 @@ androidComponents {
   }
 }
 
-// TODO Enable when ready to deploy to play store.
-//
-// play {
-//     serviceAccountCredentials.set(file("gradle-play-publisher-key.json"))
-//     defaultToAppBundles.set(true)
-//     track.set("internal")
-//     releaseStatus.set(ReleaseStatus.DRAFT)
-// }
+play {
+  serviceAccountCredentials.set(file(".secrets/playstore.json"))
+  defaultToAppBundles.set(true)
+  track.set("internal")
+  releaseStatus.set(ReleaseStatus.COMPLETED)
+}
 
 kapt {
   correctErrorTypes = true // Required by dagger-hilt
