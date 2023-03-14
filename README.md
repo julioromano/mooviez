@@ -1,4 +1,5 @@
-# TMDB Explorer
-## Unofficial Android client app for tmdb.org
+# Mooviez
+## Browse information about movies and tv shows.
 
 This is meant to be a showcase app featuring modern Android development practices.
+The data presented by this app is kindly provided by themoviedb.org

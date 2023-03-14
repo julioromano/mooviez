@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez
+package net.marcoromano.mooviez.app
 
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -8,7 +8,6 @@ import androidx.compose.ui.test.performTextInput
 import androidx.test.core.app.launchActivity
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import net.marcoromano.mooviez.app.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
