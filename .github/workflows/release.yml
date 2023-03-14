@@ -36,8 +36,8 @@ jobs:
           PLAYSTORE_FILE: ${{ secrets.PLAYSTORE_FILE }}
         run: |
           mkdir -p app/.secrets
-          echo STORE_FILE | base64 --decode > app/.secrets/keystore.jks
-          echo PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
+          echo $STORE_FILE | base64 --decode > app/.secrets/keystore.jks
+          echo $PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
       - name: Setup Gradle and publish release bundle to Play Store
         uses: gradle/gradle-build-action@v2
         id: gradle
