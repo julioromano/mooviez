@@ -13,4 +13,12 @@ public data class Movie(
   val popularity: Double,
   val runtime: Int,
   val release_date: String,
-)
+  val tagline: String,
+  val genres: List<Genre>,
+) {
+  @JsonClass(generateAdapter = true)
+  public data class Genre(
+    val id: Long,
+    val name: String,
+  )
+}

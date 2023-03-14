@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -53,7 +54,9 @@ private fun MovieScreen(
     modifier = Modifier.nestedScroll(behavior.nestedScrollConnection),
     topBar = {
       LargeTopAppBar(
-        title = { Text(text = state.movie?.title ?: stringResource(R.string.movie)) },
+        title = {
+          Text(state.movie?.title ?: AnnotatedString(stringResource(R.string.movie)))
+        },
         navigationIcon = {
           IconButton(onClick = navBack) {
             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
@@ -96,7 +99,7 @@ private fun MovieScreen(
 private fun Preview() {
   MovieScreen(
     state = MovieState(
-      movie = demoMovie(),
+      movie = demoMovieStateMovie(),
     ),
     navBack = {},
   )
