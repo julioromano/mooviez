@@ -15,19 +15,18 @@ plugins {
 
 android {
   namespace = "net.marcoromano.tmdb.app"
-  // TODO: Uncomment after creating keystore.
-  // signingConfigs {
-  //     create("release") {
-  //         storeFile = file("app.keystore")
-  //         storePassword = System.getenv("STORE_PASSWORD")
-  //         keyAlias = System.getenv("KEY_ALIAS")
-  //         keyPassword = System.getenv("KEY_PASSWORD")
-  //         enableV1Signing = true
-  //         enableV2Signing = true
-  //         enableV3Signing = true
-  //         enableV4Signing = true
-  //     }
-  // }
+  signingConfigs {
+    create("release") {
+      storeFile = file(".secrets/keystore.jks")
+      storePassword = System.getenv("STORE_PASSWORD")
+      keyAlias = System.getenv("KEY_ALIAS")
+      keyPassword = System.getenv("KEY_PASSWORD")
+      enableV1Signing = false
+      enableV2Signing = true
+      enableV3Signing = true
+      enableV4Signing = true
+    }
+  }
   buildToolsVersion = libs.versions.android.buildTools.get()
   compileSdk = libs.versions.android.compileSdk.get().toInt()
   defaultConfig {
@@ -47,8 +46,7 @@ android {
         getDefaultProguardFile("proguard-android-optimize.txt"),
         "proguard-rules.pro",
       )
-      // TODO: Uncomment after creating keystore.
-      // signingConfig = signingConfigs.getByName("release")
+      signingConfig = signingConfigs.getByName("release")
     }
   }
   compileOptions {
