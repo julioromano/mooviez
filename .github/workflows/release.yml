@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit hash'
+        required: true
+      version:
+        description: 'Version name'
+        required: true
+
+env:
+  COMMIT_HASH: ${{ github.event.inputs.commit }}
+  VERSION_NAME: ${{ github.event.inputs.version }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'oracle'
+          java-version: '17'
+      - name: Checkout repository at ${{ github.event.inputs.commit }}
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.commit }}
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Decode secrets
+          env:
+            STORE_FILE: ${{ secrets.STORE_FILE }}
+            PLAYSTORE_FILE: ${{ secrets.PLAYSTORE_FILE }}
+          run: |
+            echo STORE_FILE | base64 --decode > app/.secrets/keystore.jks
+            echo PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
+      - name: Setup Gradle and publish release bundle to Play Store
+        uses: gradle/gradle-build-action@v2
+        id: gradle
+        with:
+          gradle-home-cache-cleanup: true
+          cache-read-only: true
+          arguments: :app:bundleRelease :app:uploadCrashlyticsMappingFileRelease :app:publishReleaseBundle
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      - name: Create Github release and upload artifacts
+        uses: softprops/action-gh-release@v1
+        with:
+          target_commitish: ${{ env.COMMIT_HASH }}
+          tag_name: '${{ env.VERSION_NAME }}'
+          generate_release_notes: true
