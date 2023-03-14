@@ -1,6 +1,6 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "tmdb"
+rootProject.name = "mooviez"
 
 pluginManagement {
   repositories {

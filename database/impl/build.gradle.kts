@@ -9,5 +9,5 @@ dependencies {
 }
 
 android {
-  namespace = "net.marcoromano.tmdb.database"
+  namespace = "net.marcoromano.mooviez.database"
 }

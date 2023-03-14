@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-  namespace = "net.marcoromano.tmdb.trending"
+  namespace = "net.marcoromano.mooviez.trending"
 }
 
 dependencies {

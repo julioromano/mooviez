@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "613195079771",
-    "project_id": "tmdb-explorer-bbf2a",
-    "storage_bucket": "tmdb-explorer-bbf2a.appspot.com"
+    "project_number": "514276520428",
+    "project_id": "mooviez-d64ab",
+    "storage_bucket": "mooviez-d64ab.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:613195079771:android:67d1b6616df0d59c9edf7e",
+        "mobilesdk_app_id": "1:514276520428:android:96ebfcc92f70c41989d0c9",
         "android_client_info": {
-          "package_name": "net.marcoromano.tmdb"
+          "package_name": "net.marcoromano.mooviez"
         }
       },
       "oauth_client": [
         {
-          "client_id": "613195079771-5m56hfai0d4sbtrgo7rbaehv0vg2lfhq.apps.googleusercontent.com",
+          "client_id": "514276520428-l640oei88908m7oub18un85eqri6mojm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAhyWAOTU8800vwrQ9FhX0iV_vT7fAM0DY"
+          "current_key": "AIzaSyAI2eSCwUZMk6WBKt1qnZMnu966v0bJKdo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "613195079771-5m56hfai0d4sbtrgo7rbaehv0vg2lfhq.apps.googleusercontent.com",
+              "client_id": "514276520428-l640oei88908m7oub18un85eqri6mojm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

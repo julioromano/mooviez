@@ -10,5 +10,5 @@ dependencies {
 }
 
 android {
-  namespace = "net.marcoromano.tmdb.database.wiring"
+  namespace = "net.marcoromano.mooviez.database.wiring"
 }

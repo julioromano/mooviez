@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-  namespace = "net.marcoromano.tmdb.app"
+  namespace = "net.marcoromano.mooviez.app"
   signingConfigs {
     create("release") {
       storeFile = file(".secrets/keystore.jks")
@@ -30,7 +30,7 @@ android {
   buildToolsVersion = libs.versions.android.buildTools.get()
   compileSdk = libs.versions.android.compileSdk.get().toInt()
   defaultConfig {
-    applicationId = "net.marcoromano.tmdb"
+    applicationId = "net.marcoromano.mooviez"
     minSdk = libs.versions.android.minSdk.get().toInt()
     targetSdk = libs.versions.android.targetSdk.get().toInt()
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

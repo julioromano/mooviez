@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-  namespace = "net.marcoromano.tmdb.movie"
+  namespace = "net.marcoromano.mooviez.movie"
 }
 
 dependencies {
