@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.httpapi
+package net.marcoromano.mooviez.httpapi
 
 import retrofit2.http.GET
 import retrofit2.http.Path

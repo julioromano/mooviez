@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending
+package net.marcoromano.mooviez.trending
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController

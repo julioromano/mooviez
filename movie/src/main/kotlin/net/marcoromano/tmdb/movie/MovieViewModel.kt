@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import net.marcoromano.tmdb.httpapi.HttpApi
-import net.marcoromano.tmdb.httpapi.Movie
+import net.marcoromano.mooviez.httpapi.HttpApi
+import net.marcoromano.mooviez.httpapi.Movie
 import java.util.UUID
 import javax.inject.Inject
 

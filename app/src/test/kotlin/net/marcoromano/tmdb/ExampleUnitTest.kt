@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb
+package net.marcoromano.mooviez
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb
+package net.marcoromano.mooviez
 
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -8,7 +8,7 @@ import androidx.compose.ui.test.performTextInput
 import androidx.test.core.app.launchActivity
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import net.marcoromano.tmdb.app.MainActivity
+import net.marcoromano.mooviez.app.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -29,7 +29,7 @@ class ExampleInstrumentedTest {
   fun useAppContext() {
     // Context of the app under test.
     val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-    assertEquals("net.marcoromano.tmdb", appContext.packageName)
+    assertEquals("net.marcoromano.mooviez", appContext.packageName)
   }
 
   @Test

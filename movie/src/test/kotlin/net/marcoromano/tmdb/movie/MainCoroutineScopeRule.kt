@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

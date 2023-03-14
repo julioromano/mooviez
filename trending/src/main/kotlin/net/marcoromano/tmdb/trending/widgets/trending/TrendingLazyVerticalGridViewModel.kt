@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending.widgets.trending
+package net.marcoromano.mooviez.trending.widgets.trending
 
 import androidx.lifecycle.ViewModel
 import androidx.paging.Pager
@@ -6,8 +6,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import net.marcoromano.tmdb.httpapi.HttpApi
-import net.marcoromano.tmdb.httpapi.TrendingMovies
+import net.marcoromano.mooviez.httpapi.HttpApi
+import net.marcoromano.mooviez.httpapi.TrendingMovies
 import javax.inject.Inject
 
 @HiltViewModel

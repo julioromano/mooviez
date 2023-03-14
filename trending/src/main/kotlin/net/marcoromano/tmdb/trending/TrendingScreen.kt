@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending
+package net.marcoromano.mooviez.trending
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.padding
@@ -14,7 +14,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.marcoromano.tmdb.trending.widgets.trending.TrendingLazyVerticalGrid
+import net.marcoromano.mooviez.trending.widgets.trending.TrendingLazyVerticalGrid
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

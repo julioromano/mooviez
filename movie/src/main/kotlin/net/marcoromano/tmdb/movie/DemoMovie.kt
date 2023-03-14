@@ -1,6 +1,6 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
-import net.marcoromano.tmdb.httpapi.Movie
+import net.marcoromano.mooviez.httpapi.Movie
 
 internal fun demoMovie() = Movie(
   id = 261414,

@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending
+package net.marcoromano.mooviez.trending
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

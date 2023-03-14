@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
@@ -25,7 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import net.marcoromano.tmdb.movie.widgets.Movie
+import net.marcoromano.mooviez.movie.widgets.Movie
 
 @Composable
 internal fun MovieScreen(

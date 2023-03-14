@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.app.ui
+package net.marcoromano.mooviez.app.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable

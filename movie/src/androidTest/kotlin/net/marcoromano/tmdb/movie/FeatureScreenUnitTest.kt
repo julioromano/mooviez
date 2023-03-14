@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createComposeRule

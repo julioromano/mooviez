@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie.widgets
+package net.marcoromano.mooviez.movie.widgets
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -24,8 +24,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import net.marcoromano.tmdb.httpapi.Movie
-import net.marcoromano.tmdb.movie.demoMovie
+import net.marcoromano.mooviez.httpapi.Movie
+import net.marcoromano.mooviez.movie.demoMovie
 
 @Composable
 internal fun Movie(

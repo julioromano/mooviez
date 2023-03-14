@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.httpapi
+package net.marcoromano.mooviez.httpapi
 
 public enum class TimeWindow(private val timeWindow: String) {
   DAY("day"),

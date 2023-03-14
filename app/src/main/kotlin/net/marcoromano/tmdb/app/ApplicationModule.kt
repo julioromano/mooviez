@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.app
+package net.marcoromano.mooviez.app
 
 import android.app.Application
 import dagger.Module

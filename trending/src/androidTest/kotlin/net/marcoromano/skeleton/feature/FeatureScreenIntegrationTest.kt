@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending
+package net.marcoromano.mooviez.trending
 
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createComposeRule

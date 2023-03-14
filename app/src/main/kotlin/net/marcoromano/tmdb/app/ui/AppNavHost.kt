@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.app.ui
+package net.marcoromano.mooviez.app.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
-import net.marcoromano.tmdb.movie.MovieNavigation
-import net.marcoromano.tmdb.trending.TrendingNavigation
+import net.marcoromano.mooviez.movie.MovieNavigation
+import net.marcoromano.mooviez.trending.TrendingNavigation
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

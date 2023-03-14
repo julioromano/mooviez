@@ -5,7 +5,7 @@ plugins {
 
 sqldelight {
   database("Database") {
-    packageName = "net.marcoromano.tmdb.database"
+    packageName = "net.marcoromano.mooviez.database"
     schemaOutputDirectory = file("src/main/sqldelight/schema")
   }
 }

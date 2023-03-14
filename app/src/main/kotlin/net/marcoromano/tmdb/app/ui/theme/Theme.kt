@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.app.ui.theme
+package net.marcoromano.mooviez.app.ui.theme
 
 import android.app.Activity
 import android.os.Build

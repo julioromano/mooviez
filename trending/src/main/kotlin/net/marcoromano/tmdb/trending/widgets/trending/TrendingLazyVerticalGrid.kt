@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.trending.widgets.trending
+package net.marcoromano.mooviez.trending.widgets.trending
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -38,7 +38,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import net.marcoromano.tmdb.httpapi.TrendingMovies
+import net.marcoromano.mooviez.httpapi.TrendingMovies
 
 @Composable
 internal fun TrendingLazyVerticalGrid(

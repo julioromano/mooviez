@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.httpapi
+package net.marcoromano.mooviez.httpapi
 
 public enum class MediaType(private val mediaType: String) {
   ALL("all"),

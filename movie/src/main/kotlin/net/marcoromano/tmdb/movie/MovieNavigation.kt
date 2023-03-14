@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.movie
+package net.marcoromano.mooviez.movie
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController

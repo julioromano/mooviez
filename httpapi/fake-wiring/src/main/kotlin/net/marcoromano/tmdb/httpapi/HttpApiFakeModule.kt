@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.httpapi
+package net.marcoromano.mooviez.httpapi
 
 import dagger.Module
 import dagger.Provides

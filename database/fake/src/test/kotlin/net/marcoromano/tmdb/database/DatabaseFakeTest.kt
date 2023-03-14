@@ -1,4 +1,4 @@
-package net.marcoromano.tmdb.database
+package net.marcoromano.mooviez.database
 
 import org.junit.Assert.assertNotNull
 import org.junit.Test
