@@ -92,7 +92,8 @@ private fun Movie(
   Column(
     modifier = Modifier
       .padding(8.dp)
-      .width(160.dp),
+      .width(160.dp)
+      .clickable { navToDetail(movie.id) },
   ) {
     Box {
       Column {
@@ -109,8 +110,7 @@ private fun Movie(
           contentDescription = null,
           modifier = Modifier
             .aspectRatio(500f / 750f)
-            .clip(RoundedCornerShape(32f))
-            .clickable { navToDetail(movie.id) },
+            .clip(RoundedCornerShape(32f)),
           contentScale = ContentScale.Fit,
         )
         Spacer(modifier = Modifier.height(32.dp))
