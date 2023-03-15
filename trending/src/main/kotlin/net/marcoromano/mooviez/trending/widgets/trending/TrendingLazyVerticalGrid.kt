@@ -14,11 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Error
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,6 +37,7 @@ import coil.request.ImageRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import net.marcoromano.mooviez.httpapi.TrendingMovies
+import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable
 internal fun TrendingLazyVerticalGrid(
@@ -115,15 +114,12 @@ private fun Movie(
         )
         Spacer(modifier = Modifier.height(32.dp))
       }
-      FloatingActionButton(
-        onClick = {},
+      UserScore(
         modifier = Modifier
           .align(Alignment.BottomStart)
           .padding(8.dp),
-        shape = CircleShape,
-      ) {
-        Text(text = "${(movie.vote_average * 10).toInt()} %")
-      }
+        userScore = (movie.vote_average * 10).toInt(),
+      )
     }
     Column(
       modifier = Modifier.padding(8.dp),

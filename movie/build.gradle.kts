@@ -7,6 +7,7 @@ android {
 }
 
 dependencies {
+  implementation(projects.widgets)
   implementation(projects.database.public)
   implementation(projects.httpapi.public)
   implementation(libs.coilCompose)

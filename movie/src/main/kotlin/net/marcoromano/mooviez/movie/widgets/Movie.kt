@@ -35,6 +35,7 @@ import coil.request.ImageRequest
 import net.marcoromano.mooviez.movie.MovieState
 import net.marcoromano.mooviez.movie.R
 import net.marcoromano.mooviez.movie.demoMovieStateMovie
+import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable
 internal fun Movie(
