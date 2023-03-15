@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie.widgets
+package net.marcoromano.mooviez.widgets
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-internal fun UserScore(
+public fun UserScore(
   modifier: Modifier = Modifier,
   userScore: Int,
 ) {
