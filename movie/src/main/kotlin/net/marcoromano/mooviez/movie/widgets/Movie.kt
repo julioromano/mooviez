@@ -1,6 +1,5 @@
 package net.marcoromano.mooviez.movie.widgets
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -70,7 +70,7 @@ internal fun Movie(
           model = ImageRequest.Builder(LocalContext.current)
             .data("https://image.tmdb.org/t/p/w1280/${movie.backdropPath}")
             .size(width = 1280, height = 720)
-            .placeholder(ColorDrawable(Color.YELLOW)) // TODO: Make it better looking.
+            .placeholder(ColorDrawable(MaterialTheme.colorScheme.surfaceVariant.toArgb()))
             .error(android.R.drawable.ic_dialog_alert) // TODO: Can be better looking.
             .crossfade(true)
             .build(),
@@ -88,7 +88,7 @@ internal fun Movie(
           model = ImageRequest.Builder(LocalContext.current)
             .data("https://image.tmdb.org/t/p/w780/${movie.posterPath}")
             .size(width = 780, height = 1170)
-            .placeholder(ColorDrawable(Color.BLUE)) // TODO: Make it better looking.
+            .placeholder(ColorDrawable(MaterialTheme.colorScheme.onSurfaceVariant.toArgb()))
             .error(android.R.drawable.ic_dialog_alert) // TODO: Can be better looking.
             .crossfade(true)
             .build(),
