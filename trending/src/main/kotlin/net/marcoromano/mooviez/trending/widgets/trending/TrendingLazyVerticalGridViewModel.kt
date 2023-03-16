@@ -7,8 +7,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.squareup.sqldelight.android.paging3.QueryPagingSource
+import app.cash.sqldelight.paging3.QueryPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import net.marcoromano.mooviez.database.Database
 import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
@@ -27,6 +28,7 @@ internal class TrendingLazyVerticalGridViewModel @Inject constructor(
     QueryPagingSource(
       countQuery = database.movieQueries.countMovies(),
       transacter = database.movieQueries,
+      context = Dispatchers.IO,
       queryProvider = database.movieQueries::movies,
     )
   }.flow
@@ -36,14 +38,13 @@ internal class TrendingLazyVerticalGridViewModel @Inject constructor(
 private class Mediator(
   private val httpApi: HttpApi,
   private val database: Database,
-) : RemoteMediator<Long, Movie>() {
+) : RemoteMediator<Int, Movie>() {
   override suspend fun load(
     loadType: LoadType,
-    state: PagingState<Long, Movie>,
+    state: PagingState<Int, Movie>,
   ): MediatorResult {
     return try {
-
-      val loadKey: Int? = when (loadType) {
+      val loadKey: Long? = when (loadType) {
         LoadType.REFRESH -> null
         LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
         LoadType.APPEND -> {
@@ -57,7 +58,7 @@ private class Mediator(
 
       println("RemoteMediator.load:\nloadType: $loadType\nstate :$state\nloadKey: $loadKey")
 
-      val movies = httpApi.trendingMovies(page = loadKey ?: 1)
+      val movies = httpApi.trendingMovies(page = loadKey?.toInt() ?: 1)
       val nextKey = if (movies.page < movies.total_pages) movies.page + 1 else null
 
       database.movieQueries.apply {
@@ -74,7 +75,7 @@ private class Mediator(
                 release_date = movie.release_date,
               ),
             )
-            insertNextPage(nextKey)
+            insertNextPage(nextKey?.toLong())
           }
         }
       }

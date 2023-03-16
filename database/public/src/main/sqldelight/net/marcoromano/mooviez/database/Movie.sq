@@ -10,7 +10,7 @@ CREATE TABLE Movie (
 
 CREATE TABLE MoviePage (
   id INTEGER PRIMARY KEY NOT NULL,
-  next_page INTEGER AS Int
+  next_page INTEGER
 );
 
 insertMovie:
