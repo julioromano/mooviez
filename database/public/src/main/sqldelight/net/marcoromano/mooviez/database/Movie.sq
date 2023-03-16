@@ -1,42 +1,32 @@
 CREATE TABLE Movie (
-  id INTEGER PRIMARY KEY NOT NULL,
+  position INTEGER PRIMARY KEY NOT NULL,
+  id INTEGER NOT NULL,
   title TEXT NOT NULL,
   poster_path TEXT NOT NULL,
   overview TEXT NOT NULL,
-  vote_average REAL NOT NULL
+  vote_average REAL NOT NULL,
+  release_date TEXT NOT NULL
 );
 
-getMovies:
-SELECT
-id,
-title,
-poster_path,
-overview,
-vote_average
-FROM Movie
-;
-
-getMovie:
-SELECT
-id,
-title,
-poster_path,
-overview,
-vote_average
-FROM Movie
-WHERE id = ?
-;
+CREATE TABLE MoviePage (
+  id INTEGER PRIMARY KEY NOT NULL,
+  next_page INTEGER AS Int
+);
 
 insertMovie:
-INSERT OR REPLACE INTO Movie (
-id,
-title,
-poster_path,
-overview,
-vote_average
-)
-VALUES (?,?,?,?,?)
-;
+INSERT OR REPLACE INTO Movie VALUES ?;
 
-deleteMovies:
-DELETE FROM Movie;
+countMovies:
+SELECT count(*) FROM Movie;
+
+movies:
+SELECT *
+FROM Movie
+ORDER BY position ASC
+LIMIT :limit OFFSET :offset;
+
+insertNextPage:
+INSERT OR REPLACE INTO MoviePage(id, next_page) VALUES (0, ?);
+
+nextPage:
+SELECT next_page FROM MoviePage WHERE id == 0;

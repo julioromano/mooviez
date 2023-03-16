@@ -37,7 +37,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import net.marcoromano.mooviez.httpapi.TrendingMovies
+import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable
@@ -59,7 +59,7 @@ internal fun TrendingLazyVerticalGrid(
 private fun TrendingLazyVerticalGrid(
   columns: GridCells,
   modifier: Modifier,
-  pager: Flow<PagingData<TrendingMovies.Movie>>,
+  pager: Flow<PagingData<Movie>>,
   onMovieClick: (id: Long) -> Unit,
 ) {
   val trendingPagingData = pager.collectAsLazyPagingItems()
@@ -86,7 +86,7 @@ private fun TrendingLazyVerticalGrid(
 
 @Composable
 private fun Movie(
-  movie: TrendingMovies.Movie,
+  movie: Movie,
   navToDetail: (id: Long) -> Unit,
 ) {
   Column(
@@ -142,7 +142,8 @@ private fun Movie(
 @Composable
 private fun PreviewMovie() {
   Movie(
-    movie = TrendingMovies.Movie(
+    movie = Movie(
+      position = 0,
       id = 0,
       title = "A very long title that must be wrapped in multiple lines",
       poster_path = "https://dummyimage.com/500x750/000/fff.jpg",
@@ -163,7 +164,8 @@ private fun PreviewTrending() {
     pager = flowOf(
       PagingData.from(
         listOf(
-          TrendingMovies.Movie(
+          Movie(
+            position = 0,
             id = 0,
             title = "A very long title that must be wrapped in multiple lines",
             poster_path = "https://dummyimage.com/500x750/000/fff.jpg",
@@ -171,7 +173,8 @@ private fun PreviewTrending() {
             vote_average = 1.2,
             release_date = "2022-02-03",
           ),
-          TrendingMovies.Movie(
+          Movie(
+            position = 0,
             id = 0,
             title = "A very long title that must be wrapped in multiple lines",
             poster_path = "https://dummyimage.com/500x750/000/fff.jpg",
