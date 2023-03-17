@@ -44,7 +44,7 @@ private class Mediator(
     state: PagingState<Int, Movie>,
   ): MediatorResult {
     return try {
-      val loadKey: Long? = when (loadType) {
+      val loadPage: Long? = when (loadType) {
         LoadType.REFRESH -> null
         LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
         LoadType.APPEND -> {
@@ -56,10 +56,8 @@ private class Mediator(
         }
       }
 
-      println("RemoteMediator.load:\nloadType: $loadType\nstate :$state\nloadKey: $loadKey")
-
-      val movies = httpApi.trendingMovies(page = loadKey?.toInt() ?: 1)
-      val nextKey = if (movies.page < movies.total_pages) movies.page + 1 else null
+      val movies = httpApi.trendingMovies(page = loadPage?.toInt() ?: 1)
+      val nextPage = if (movies.page < movies.total_pages) movies.page + 1 else null
 
       database.movieQueries.apply {
         transaction {
@@ -75,12 +73,12 @@ private class Mediator(
                 release_date = movie.release_date,
               ),
             )
-            insertNextPage(nextKey?.toLong())
+            insertNextPage(nextPage?.toLong())
           }
         }
       }
 
-      MediatorResult.Success(endOfPaginationReached = nextKey == null)
+      MediatorResult.Success(endOfPaginationReached = nextPage == null)
     } catch (e: RuntimeException) {
       return MediatorResult.Error(e)
     }
