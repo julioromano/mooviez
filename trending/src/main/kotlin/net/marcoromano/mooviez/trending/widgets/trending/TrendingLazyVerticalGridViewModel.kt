@@ -22,7 +22,10 @@ internal class TrendingLazyVerticalGridViewModel @Inject constructor(
 ) : ViewModel() {
   @OptIn(ExperimentalPagingApi::class)
   val pager = Pager(
-    config = PagingConfig(pageSize = 20), // 20 comes from tmdb api docs
+    config = PagingConfig(
+      pageSize = 20, // 20 comes from tmdb api docs
+      enablePlaceholders = true,
+    ),
     remoteMediator = Mediator(httpApi = httpApi, database = database),
   ) {
     QueryPagingSource(
