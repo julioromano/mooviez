@@ -12,7 +12,7 @@ internal data class MovieState(
     val subtitle: String,
     val tagline: String,
     val posterPath: String,
-    val backdropPath: String,
+    val backdropPath: String?,
     val overview: String,
     val userScore: Int,
     val releaseDate: String,
