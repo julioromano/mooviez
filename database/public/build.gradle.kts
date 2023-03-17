@@ -4,8 +4,11 @@ plugins {
 }
 
 sqldelight {
-  database("Database") {
-    packageName = "net.marcoromano.mooviez.database"
-    schemaOutputDirectory = file("src/main/sqldelight/schema")
+  databases {
+    create("Database") {
+      packageName.set("net.marcoromano.mooviez.database")
+      dialect(libs.square.sqlite18dialect)
+      schemaOutputDirectory.set(file("src/main/sqldelight/schema"))
+    }
   }
 }

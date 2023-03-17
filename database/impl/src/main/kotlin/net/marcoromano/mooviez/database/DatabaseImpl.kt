@@ -2,7 +2,7 @@ package net.marcoromano.mooviez.database
 
 import android.content.Context
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.squareup.sqldelight.android.AndroidSqliteDriver
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 
 public fun DatabaseImpl(context: Context): Database = Database(
   driver = AndroidSqliteDriver(

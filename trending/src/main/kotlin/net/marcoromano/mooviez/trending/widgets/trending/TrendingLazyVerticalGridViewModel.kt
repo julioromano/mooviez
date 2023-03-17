@@ -1,48 +1,86 @@
 package net.marcoromano.mooviez.trending.widgets.trending
 
 import androidx.lifecycle.ViewModel
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.LoadType
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import androidx.paging.RemoteMediator
+import app.cash.sqldelight.paging3.QueryPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import net.marcoromano.mooviez.database.Database
+import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
-import net.marcoromano.mooviez.httpapi.TrendingMovies
 import javax.inject.Inject
 
 @HiltViewModel
 internal class TrendingLazyVerticalGridViewModel @Inject constructor(
-  private val httpApi: HttpApi,
+  httpApi: HttpApi,
+  private val database: Database,
 ) : ViewModel() {
-  val pager = Pager(PagingConfig(pageSize = 20)) { // 20 comes from tmdb api docs
-    NetworkPagingSource(httpApi)
+  @OptIn(ExperimentalPagingApi::class)
+  val pager = Pager(
+    config = PagingConfig(pageSize = 20), // 20 comes from tmdb api docs
+    remoteMediator = Mediator(httpApi = httpApi, database = database),
+  ) {
+    QueryPagingSource(
+      countQuery = database.movieQueries.countMovies(),
+      transacter = database.movieQueries,
+      context = Dispatchers.IO,
+      queryProvider = database.movieQueries::movies,
+    )
   }.flow
 }
 
-private class NetworkPagingSource(
+@OptIn(ExperimentalPagingApi::class)
+private class Mediator(
   private val httpApi: HttpApi,
-) : PagingSource<Int, TrendingMovies.Movie>() {
-  override fun getRefreshKey(state: PagingState<Int, TrendingMovies.Movie>): Int? {
-    return state.anchorPosition?.let { anchorPosition ->
-      val anchorPage = state.closestPageToPosition(anchorPosition)
-      anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
-    }
-  }
+  private val database: Database,
+) : RemoteMediator<Int, Movie>() {
+  override suspend fun load(
+    loadType: LoadType,
+    state: PagingState<Int, Movie>,
+  ): MediatorResult {
+    return try {
+      val loadPage: Long? = when (loadType) {
+        LoadType.REFRESH -> null
+        LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
+        LoadType.APPEND -> {
+          val remoteKey = database.movieQueries.nextPage().executeAsOne()
+          if (remoteKey.next_page == null) {
+            return MediatorResult.Success(endOfPaginationReached = true)
+          }
+          remoteKey.next_page
+        }
+      }
 
-  override suspend fun load(params: LoadParams<Int>): LoadResult<Int, TrendingMovies.Movie> {
-    return runCatching {
-      httpApi.trendingMovies(page = params.key ?: 1)
-    }.fold(
-      {
-        LoadResult.Page(
-          data = it.results,
-          prevKey = if (it.page > 1) it.page - 1 else null,
-          nextKey = if (it.page < it.total_pages) it.page + 1 else null,
-        )
-      },
-      {
-        LoadResult.Error(it)
-      },
-    )
+      val movies = httpApi.trendingMovies(page = loadPage?.toInt() ?: 1)
+      val nextPage = if (movies.page < movies.total_pages) movies.page + 1 else null
+
+      database.movieQueries.apply {
+        transaction {
+          movies.results.forEachIndexed { i, movie ->
+            insertMovie(
+              Movie(
+                position = (movies.page - 1) * 20L + i,
+                id = movie.id,
+                title = movie.title,
+                poster_path = movie.poster_path,
+                overview = movie.overview,
+                vote_average = movie.vote_average,
+                release_date = movie.release_date,
+              ),
+            )
+            insertNextPage(nextPage?.toLong())
+          }
+        }
+      }
+
+      MediatorResult.Success(endOfPaginationReached = nextPage == null)
+    } catch (e: RuntimeException) {
+      return MediatorResult.Error(e)
+    }
   }
 }

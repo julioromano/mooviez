@@ -31,7 +31,7 @@ plugin-playPublisher = "3.8.1"
 square-moshi = "1.14.0"
 square-okhttp = "4.10.0"
 square-retrofit = "2.9.0"
-square-sqlDelight = "1.5.5"
+square-sqlDelight = "2.0.0-alpha05"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "plugin-android" }
@@ -50,7 +50,7 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
 playPublisher = { id = "com.github.triplet.play", version.ref = "plugin-playPublisher" }
-square-sqldelight = { id = "com.squareup.sqldelight", version.ref = "square-sqlDelight" }
+square-sqldelight = { id = "app.cash.sqldelight", version.ref = "square-sqlDelight" }
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
@@ -164,7 +164,7 @@ plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 plugin-kotlinter = { module = "org.jmailen.gradle:kotlinter-gradle", version.ref = "plugin-kotlinter" }
 plugin-playPublisher = { module = "com.github.triplet.gradle:play-publisher", version.ref = "plugin-playPublisher" }
-plugin-square-sqldelight = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "square-sqlDelight" }
+plugin-square-sqldelight = { module = "app.cash.sqldelight:gradle-plugin", version.ref = "square-sqlDelight" }
 robolectric = "org.robolectric:robolectric:4.9.2"
 square-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
 square-moshi = { module = "com.squareup.moshi:moshi", version.ref = "square-moshi" }
@@ -178,10 +178,11 @@ square-okhttpMockwebserver = { module = "com.squareup.okhttp3:mockwebserver", ve
 square-okio = "com.squareup.okio:okio:3.3.0"
 square-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "square-retrofit" }
 square-retrofitConverterMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "square-retrofit" }
-square-sqlDelightAndroid = { module = "com.squareup.sqldelight:android-driver", version.ref = "square-sqlDelight" }
-square-sqlDelightAndroidPaging3 = { module = "com.squareup.sqldelight:android-paging3-extensions", version.ref = "square-sqlDelight" }
-square-sqlDelightCoroutines = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
-square-sqlDelightJvm = { module = "com.squareup.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
+square-sqlDelightAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "square-sqlDelight" }
+square-sqlDelightAndroidPaging3 = { module = "app.cash.sqldelight:androidx-paging3-extensions-jvm", version.ref = "square-sqlDelight" }
+square-sqlDelightCoroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
+square-sqlDelightJvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
+square-sqlite18dialect = { module = "app.cash.sqldelight:sqlite-3-18-dialect", version.ref = "square-sqlDelight" }
 square-turbine = "app.cash.turbine:turbine:0.12.1"
 
 [bundles]
