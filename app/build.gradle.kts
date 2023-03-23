@@ -131,6 +131,7 @@ dependencies {
   implementation(libs.androidx.coreSplashscreen)
   implementation(libs.androidx.lifecycleRuntime)
   implementation(libs.androidx.navigation.compose)
+  implementation(libs.appyx.core)
   implementation(libs.bundles.androidx.compose)
   implementation(libs.google.accompanistNavigationAnimation)
   implementation(libs.google.accompanistSystemUi)

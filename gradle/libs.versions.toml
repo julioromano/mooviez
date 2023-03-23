@@ -12,6 +12,7 @@ androidx-paging = "3.1.1"
 androidx-test = "1.5.0"
 androidx-testEspresso = "3.5.1"
 androidx-workManager = "2.8.1"
+appyx = "1.0.5"
 coil = "2.2.2"
 google-accompanist = "0.30.0"
 google-dagger = "2.45"
@@ -114,6 +115,11 @@ androidx-uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
 androidx-webkit = "androidx.webkit:webkit:1.6.1"
 androidx-workRuntime = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-workManager" }
 androidx-workTesting = { module = "androidx.work:work-testing", version.ref = "androidx-workManager" }
+appyx-core = { module = "com.bumble.appyx:core", version.ref = "appyx" }
+appyx-testingUiActivity = { module = "com.bumble.appyx:testing-ui-activity", version.ref = "appyx" }
+appyx-testingUi = { module = "com.bumble.appyx:testing-ui", version.ref = "appyx" }
+appyx-testingUnitCommon = { module = "com.bumble.appyx:testing-unit-common", version.ref = "appyx" }
+appyx-TestingJunit4 = { module = "com.bumble.appyx:testing-junit4", version.ref = "appyx" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 google-accompanistFlow = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "google-accompanist" }
