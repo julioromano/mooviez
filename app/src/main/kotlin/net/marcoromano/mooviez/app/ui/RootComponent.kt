@@ -13,7 +13,11 @@ import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.parcelize.Parcelize
+import net.marcoromano.mooviez.httpapi.HttpApi
 import net.marcoromano.mooviez.movie.DefaultMovieComponent
 import net.marcoromano.mooviez.movie.MovieComponent
 import net.marcoromano.mooviez.trending.DefaultTrendingComponent
@@ -28,8 +32,14 @@ interface RootComponent {
   }
 }
 
-class DefaultRootComponent(
-  componentContext: ComponentContext,
+@AssistedFactory
+interface DefaultRootComponentFactory {
+  fun create(componentContext: ComponentContext): DefaultRootComponent
+}
+
+class DefaultRootComponent @AssistedInject constructor(
+  private val httpApi: HttpApi,
+  @Assisted componentContext: ComponentContext,
 ) : RootComponent, ComponentContext by componentContext {
 
   private val navigation = StackNavigation<Config>()
@@ -54,6 +64,7 @@ class DefaultRootComponent(
       is Config.Movie -> RootComponent.Child.MovieChild(
         DefaultMovieComponent(
           componentContext = componentContext,
+          httpApi = httpApi,
           id = config.id,
           navBack = navigation::pop,
         ),

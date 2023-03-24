@@ -16,32 +16,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import net.marcoromano.mooviez.movie.widgets.Movie
-
-@Composable
-internal fun MovieScreen(
-  navBack: () -> Unit,
-) {
-  val vm = hiltViewModel<MovieViewModel>()
-  val state by vm.state.collectAsStateWithLifecycle()
-  LaunchedEffect(Unit) {
-    if (state.movie == null) vm.load()
-  }
-  MovieScreen(
-    state = state,
-    navBack = navBack,
-  )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
