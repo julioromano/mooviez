@@ -13,6 +13,8 @@ dependencies {
   implementation(libs.coilCompose)
   implementation(libs.androidx.pagingRuntime)
   implementation(libs.androidx.pagingCompose)
+  implementation(libs.decompose)
+  implementation(libs.decompose.extensionsComposeJetpack)
   implementation(libs.google.accompanistPlaceholderMaterial)
   implementation(libs.square.sqlDelightAndroidPaging3)
   implementation(libs.square.sqlDelightCoroutines)

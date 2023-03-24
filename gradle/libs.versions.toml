@@ -13,6 +13,7 @@ androidx-test = "1.5.0"
 androidx-testEspresso = "3.5.1"
 androidx-workManager = "2.8.1"
 coil = "2.2.2"
+decompose = "1.0.0"
 google-accompanist = "0.30.0"
 google-dagger = "2.45"
 google-glance-tooling = "0.2.2"
@@ -116,6 +117,9 @@ androidx-workRuntime = { module = "androidx.work:work-runtime-ktx", version.ref 
 androidx-workTesting = { module = "androidx.work:work-testing", version.ref = "androidx-workManager" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose"}
+decompose-extensionsComposeJetbrains = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose"}
+decompose-extensionsComposeJetpack = { module = "com.arkivanov.decompose:extensions-compose-jetpack", version.ref = "decompose"}
 google-accompanistFlow = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "google-accompanist" }
 google-accompanistInsetsUi = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "google-accompanist" }
 google-accompanistNavigationAnimation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "google-accompanist" }
