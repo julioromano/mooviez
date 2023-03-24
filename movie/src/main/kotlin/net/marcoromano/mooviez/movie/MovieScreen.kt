@@ -45,7 +45,7 @@ internal fun MovieScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MovieScreen(
+internal fun MovieScreen(
   state: MovieState,
   navBack: () -> Unit,
 ) {
