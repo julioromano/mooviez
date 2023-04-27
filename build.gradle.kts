@@ -5,7 +5,6 @@ buildscript {
     classpath(libs.plugin.google.firebase.appDistribution)
     classpath(libs.plugin.google.firebase.crashlytics)
     classpath(libs.plugin.google.ksp)
-    classpath(libs.plugin.google.secrets)
     classpath(libs.plugin.google.services)
     classpath(libs.plugin.kotlin)
     classpath(libs.plugin.kotlin.serialization)
