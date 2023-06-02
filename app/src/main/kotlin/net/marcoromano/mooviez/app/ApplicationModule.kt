@@ -21,5 +21,5 @@ object ApplicationModule {
 
   @Provides
   @Named("tmdbApiKey")
-  fun tmdbApiKey(): String = BuildConfig.tmdbApiKey
+  fun tmdbApiKey(): String = BuildConfig.TMDB_API_KEY
 }

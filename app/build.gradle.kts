@@ -1,4 +1,5 @@
 import com.android.build.api.variant.VariantOutputConfiguration
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.github.triplet.gradle.androidpublisher.ReleaseStatus
 import java.time.Instant
 
@@ -10,7 +11,6 @@ plugins {
   id(libs.plugins.google.firebase.crashlytics.get().pluginId)
   id(libs.plugins.playPublisher.get().pluginId)
   id(libs.plugins.dagger.hilt.get().pluginId)
-  id(libs.plugins.google.secrets.get().pluginId)
   id(libs.plugins.kotlinter.get().pluginId)
 }
 
@@ -38,6 +38,10 @@ android {
     testInstrumentationRunnerArguments["clearPackageData"] = "true"
   }
   buildTypes {
+    val tmdbApiKey = System.getenv("TMDB_API_KEY") ?: gradleLocalProperties(rootDir).getProperty("tmdbApiKey")
+    buildTypes.forEach {
+      it.buildConfigField("String", "TMDB_API_KEY", "\"${tmdbApiKey}\"")
+    }
     getByName("debug") {
       versionNameSuffix = "-DEBUG"
     }
@@ -116,10 +120,6 @@ kapt {
 
 hilt {
   enableAggregatingTask = true
-}
-
-secrets {
-  defaultPropertiesFileName = "local.defaults.properties"
 }
 
 dependencies {
