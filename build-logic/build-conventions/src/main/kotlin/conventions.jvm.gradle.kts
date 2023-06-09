@@ -6,6 +6,7 @@ val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().name
 
 plugins {
   id("org.jetbrains.kotlin.jvm")
+  id("com.google.devtools.ksp")
   id("org.jmailen.kotlinter")
 }
 

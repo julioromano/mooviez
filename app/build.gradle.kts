@@ -7,6 +7,7 @@ plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.kotlin.kapt.get().pluginId)
+  id(libs.plugins.google.ksp.get().pluginId)
   id(libs.plugins.google.services.get().pluginId)
   id(libs.plugins.google.firebase.crashlytics.get().pluginId)
   id(libs.plugins.playPublisher.get().pluginId)
