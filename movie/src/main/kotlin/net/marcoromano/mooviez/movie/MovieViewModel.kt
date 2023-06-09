@@ -7,7 +7,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
@@ -20,11 +19,9 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.UUID
-import javax.inject.Inject
 import kotlin.math.roundToInt
 
-@HiltViewModel
-internal class MovieViewModel @Inject constructor(
+internal class MovieViewModel constructor(
   private val savedStateHandle: SavedStateHandle,
   private val httpApi: HttpApi,
 ) : ViewModel() {

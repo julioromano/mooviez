@@ -24,15 +24,15 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import net.marcoromano.mooviez.movie.widgets.Movie
 
 @Composable
 internal fun MovieScreen(
   navBack: () -> Unit,
 ) {
-  val vm = hiltViewModel<MovieViewModel>()
+  val vm = viewModel<MovieViewModel>()
   val state by vm.state.collectAsStateWithLifecycle()
   LaunchedEffect(Unit) {
     if (state.movie == null) vm.load()

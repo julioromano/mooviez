@@ -1,7 +1,6 @@
 buildscript {
   dependencies {
     classpath(libs.plugin.android)
-    classpath(libs.plugin.dagger.hilt)
     classpath(libs.plugin.google.firebase.appDistribution)
     classpath(libs.plugin.google.firebase.crashlytics)
     classpath(libs.plugin.google.ksp)

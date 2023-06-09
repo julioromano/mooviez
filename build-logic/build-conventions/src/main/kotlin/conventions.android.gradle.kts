@@ -7,7 +7,6 @@ val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().name
 plugins {
   id("com.android.library")
   id("org.jetbrains.kotlin.android")
-  id("org.jetbrains.kotlin.kapt")
   id("com.google.devtools.ksp")
   id("org.jmailen.kotlinter")
 }
@@ -55,26 +54,19 @@ kotlin {
   jvmToolchain(17)
 }
 
-kapt {
-  correctErrorTypes = true // Required by dagger-hilt
-}
-
 dependencies {
   implementation(libs.findBundle("androidx.compose").get())
   implementation(libs.findLibrary("androidx.activityCompose").get())
   implementation(libs.findLibrary("androidx.core").get())
-  implementation(libs.findLibrary("androidx.hiltNavCompose").get())
   implementation(libs.findLibrary("androidx.lifecycleRuntimeCompose").get())
   implementation(libs.findLibrary("androidx.lifecycleViewmodelCompose").get())
   implementation(libs.findLibrary("google.accompanistNavigationAnimation").get())
-  implementation(libs.findLibrary("google.daggerHiltAndroid").get())
   implementation(libs.findLibrary("kotlinx.coroutinesAndroid").get())
   implementation(platform(libs.findLibrary("androidx.compose.bom").get()))
   debugImplementation(libs.findLibrary("androidx-composeUiTestManifest").get())
   debugImplementation(libs.findLibrary("androidx.composeUiTooling").get())
   implementation(libs.findLibrary("kotlin.inject.runtime").get())
   ksp(libs.findLibrary("kotlin.inject.ksp").get())
-  kapt(libs.findLibrary("google.daggerHiltCompiler").get())
   testImplementation(libs.findLibrary("androidx.testExtJunit").get())
   testImplementation(libs.findLibrary("junit").get())
   testImplementation(libs.findLibrary("kotlin.test").get())

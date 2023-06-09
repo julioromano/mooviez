@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +19,7 @@ internal fun TrendingLazyVerticalGrid(
   modifier: Modifier = Modifier,
   onMovieClick: (id: Long) -> Unit,
 ) {
-  val vm = hiltViewModel<TrendingLazyVerticalGridViewModel>()
+  val vm = viewModel<TrendingLazyVerticalGridViewModel>()
   TrendingLazyVerticalGrid(
     columns,
     modifier,

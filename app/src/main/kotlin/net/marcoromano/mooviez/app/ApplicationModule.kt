@@ -1,25 +1,20 @@
 package net.marcoromano.mooviez.app
 
 import android.app.Application
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import java.io.File
-import javax.inject.Named
 
-@Module
-@InstallIn(SingletonComponent::class)
+// @Module
+// @InstallIn(SingletonComponent::class)
 object ApplicationModule {
-  @Provides
-  @Named("httpCacheDir")
+  //  @Provides
+//  @Named("httpCacheDir")
   fun httpCacheDir(application: Application): File? = application.cacheDir
 
-  @Provides
-  @Named("enableLogging")
+  //  @Provides
+//  @Named("enableLogging")
   fun enableLogging(): Boolean = BuildConfig.DEBUG
 
-  @Provides
-  @Named("tmdbApiKey")
+  //  @Provides
+//  @Named("tmdbApiKey")
   fun tmdbApiKey(): String = BuildConfig.TMDB_API_KEY
 }

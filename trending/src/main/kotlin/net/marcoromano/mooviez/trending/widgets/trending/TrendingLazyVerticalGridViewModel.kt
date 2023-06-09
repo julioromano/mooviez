@@ -8,15 +8,12 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import app.cash.sqldelight.paging3.QueryPagingSource
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import net.marcoromano.mooviez.database.Database
 import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
-import javax.inject.Inject
 
-@HiltViewModel
-internal class TrendingLazyVerticalGridViewModel @Inject constructor(
+internal class TrendingLazyVerticalGridViewModel constructor(
   httpApi: HttpApi,
   private val database: Database,
 ) : ViewModel() {

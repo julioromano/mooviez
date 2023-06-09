@@ -6,12 +6,10 @@ import java.time.Instant
 plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
-  id(libs.plugins.kotlin.kapt.get().pluginId)
   id(libs.plugins.google.ksp.get().pluginId)
   id(libs.plugins.google.services.get().pluginId)
   id(libs.plugins.google.firebase.crashlytics.get().pluginId)
   id(libs.plugins.playPublisher.get().pluginId)
-  id(libs.plugins.dagger.hilt.get().pluginId)
   id(libs.plugins.kotlinter.get().pluginId)
 }
 
@@ -115,17 +113,9 @@ play {
   releaseStatus.set(ReleaseStatus.COMPLETED)
 }
 
-kapt {
-  correctErrorTypes = true // Required by dagger-hilt
-}
-
-hilt {
-  enableAggregatingTask = true
-}
-
 dependencies {
-  implementation(projects.httpapi.implWiring)
-  implementation(projects.database.implWiring)
+  implementation(projects.httpapi.impl)
+  implementation(projects.database.impl)
   implementation(projects.trending)
   implementation(projects.movie)
   implementation(libs.androidx.activityCompose)
@@ -136,7 +126,6 @@ dependencies {
   implementation(libs.bundles.androidx.compose)
   implementation(libs.google.accompanistNavigationAnimation)
   implementation(libs.google.accompanistSystemUi)
-  implementation(libs.google.daggerHiltAndroid)
   debugImplementation(libs.square.leakcanary)
   implementation(platform(libs.androidx.compose.bom))
   debugImplementation(libs.androidx.composeUiTestManifest)
@@ -145,7 +134,6 @@ dependencies {
   releaseImplementation(libs.google.firebase.crashlytics)
   implementation(libs.kotlin.inject.runtime)
   ksp(libs.kotlin.inject.ksp)
-  kapt(libs.google.daggerHiltCompiler)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.composeUiTestJunit4)
   androidTestImplementation(libs.androidx.testCore)
