@@ -1,5 +1,5 @@
 [versions]
-android-buildTools = "33.0.0"
+android-buildTools = "33.0.2"
 android-compileSdk = "33"
 android-minSdk = "26"
 android-targetSdk = "33"
