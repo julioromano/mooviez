@@ -72,6 +72,8 @@ dependencies {
   implementation(platform(libs.findLibrary("androidx.compose.bom").get()))
   debugImplementation(libs.findLibrary("androidx-composeUiTestManifest").get())
   debugImplementation(libs.findLibrary("androidx.composeUiTooling").get())
+  implementation(libs.findLibrary("kotlin.inject.runtime").get())
+  ksp(libs.findLibrary("kotlin.inject.ksp").get())
   kapt(libs.findLibrary("google.daggerHiltCompiler").get())
   testImplementation(libs.findLibrary("androidx.testExtJunit").get())
   testImplementation(libs.findLibrary("junit").get())

@@ -27,6 +27,8 @@ tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask> {
 
 dependencies {
   implementation(libs.findLibrary("kotlinx.coroutines").get())
+  implementation(libs.findLibrary("kotlin.inject.runtime").get())
+  ksp(libs.findLibrary("kotlin.inject.ksp").get())
   testImplementation(libs.findLibrary("kotlin.test").get())
   testImplementation(libs.findLibrary("kotlin.test.junit").get())
   testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
