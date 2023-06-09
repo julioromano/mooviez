@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.Flow
@@ -15,21 +14,6 @@ import net.marcoromano.mooviez.database.Movie
 
 @Composable
 internal fun TrendingLazyVerticalGrid(
-  columns: GridCells,
-  modifier: Modifier = Modifier,
-  onMovieClick: (id: Long) -> Unit,
-) {
-  val vm = viewModel<TrendingLazyVerticalGridViewModel>()
-  TrendingLazyVerticalGrid(
-    columns,
-    modifier,
-    vm.pager,
-    onMovieClick,
-  )
-}
-
-@Composable
-private fun TrendingLazyVerticalGrid(
   columns: GridCells,
   modifier: Modifier,
   pager: Flow<PagingData<Movie>>,

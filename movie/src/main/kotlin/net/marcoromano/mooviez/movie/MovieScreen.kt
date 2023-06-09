@@ -24,15 +24,23 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
+import me.tatarka.inject.annotations.Inject
+import net.marcoromano.mooviez.inject.viewModel
 import net.marcoromano.mooviez.movie.widgets.Movie
 
+public typealias MovieScreen = @Composable (
+  navBack: () -> Unit,
+) -> Unit
+
+@Inject
 @Composable
-internal fun MovieScreen(
+public fun MovieScreen(
+  movieViewModel: (handle: SavedStateHandle) -> MovieViewModel,
   navBack: () -> Unit,
 ) {
-  val vm = viewModel<MovieViewModel>()
+  val vm = viewModel { movieViewModel(it) }
   val state by vm.state.collectAsStateWithLifecycle()
   LaunchedEffect(Unit) {
     if (state.movie == null) vm.load()

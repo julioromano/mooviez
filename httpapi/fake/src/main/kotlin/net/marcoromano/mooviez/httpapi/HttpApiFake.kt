@@ -7,7 +7,7 @@ import okio.buffer
 import okio.source
 import java.util.Date
 
-public class HttpApiFake : HttpApi {
+internal class HttpApiFake : HttpApi {
   override suspend fun trendingMovies(
     mediaType: MediaType,
     timeWindow: TimeWindow,

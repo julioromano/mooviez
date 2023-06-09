@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.trending.widgets.trending
+package net.marcoromano.mooviez.trending
 
 import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi
@@ -9,16 +9,18 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import app.cash.sqldelight.paging3.QueryPagingSource
 import kotlinx.coroutines.Dispatchers
+import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.database.Database
 import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
 
-internal class TrendingLazyVerticalGridViewModel constructor(
+@Inject
+public class TrendingViewModel(
   httpApi: HttpApi,
   private val database: Database,
 ) : ViewModel() {
   @OptIn(ExperimentalPagingApi::class)
-  val pager = Pager(
+  internal val pager = Pager(
     config = PagingConfig(
       pageSize = 20, // 20 comes from tmdb api docs
       enablePlaceholders = true,

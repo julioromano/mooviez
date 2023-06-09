@@ -6,8 +6,12 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.composable
+import me.tatarka.inject.annotations.Inject
 
-public object MovieNavigation {
+@Inject
+public class MovieNavigation(
+  private val movieScreen: MovieScreen,
+) {
   @OptIn(ExperimentalAnimationApi::class)
   public fun navGraphBuilder(
     navGraphBuilder: NavGraphBuilder,
@@ -21,7 +25,7 @@ public object MovieNavigation {
         },
       ),
     ) {
-      MovieScreen(
+      movieScreen(
         navBack = navBack,
       )
     }

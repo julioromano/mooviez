@@ -3,8 +3,10 @@ package net.marcoromano.mooviez.database
 import android.content.Context
 import androidx.sqlite.db.SupportSQLiteDatabase
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+import me.tatarka.inject.annotations.Inject
 
-public fun DatabaseImpl(context: Context): Database = Database(
+@Inject
+internal fun DatabaseImpl(context: Context): Database = Database(
   driver = AndroidSqliteDriver(
     schema = Database.Schema,
     context = context,
