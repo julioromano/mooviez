@@ -1,7 +1,12 @@
 package net.marcoromano.mooviez.app
 
-import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import android.content.Context
 
-@HiltAndroidApp
-class Application : Application()
+class Application : android.app.Application() {
+  val applicationComponent: ApplicationComponent by lazy {
+    ApplicationComponent::class.create(this)
+  }
+}
+
+val Context.applicationComponent: ApplicationComponent
+  get() = (applicationContext as Application).applicationComponent

@@ -4,9 +4,15 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
+import me.tatarka.inject.annotations.Inject
 
-public object TrendingNavigation {
-  public const val route: String = "feature"
+@Inject
+public class TrendingNavigation(
+  private val trendingScreen: TrendingScreen,
+) {
+  public companion object {
+    public const val route: String = "feature"
+  }
 
   @OptIn(ExperimentalAnimationApi::class)
   public fun navGraphBuilder(
@@ -16,7 +22,7 @@ public object TrendingNavigation {
     navGraphBuilder.composable(
       route = route,
     ) {
-      TrendingScreen(
+      trendingScreen(
         navToDetail = navToDetail,
       )
     }

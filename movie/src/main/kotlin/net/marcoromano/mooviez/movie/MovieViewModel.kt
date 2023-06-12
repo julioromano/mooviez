@@ -7,35 +7,35 @@ import androidx.compose.ui.text.withStyle
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import me.tatarka.inject.annotations.Assisted
+import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.httpapi.HttpApi
 import java.time.Duration
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.UUID
-import javax.inject.Inject
 import kotlin.math.roundToInt
 
-@HiltViewModel
-internal class MovieViewModel @Inject constructor(
-  private val savedStateHandle: SavedStateHandle,
+@Inject
+public class MovieViewModel(
+  @Assisted private val savedStateHandle: SavedStateHandle,
   private val httpApi: HttpApi,
 ) : ViewModel() {
   private val isLoading = MutableStateFlow(false)
   private val errors = MutableStateFlow<Map<String, Throwable>>(emptyMap())
   private val movie = MutableStateFlow<MovieState.Movie?>(null)
 
-  val state = combine(isLoading, errors, movie, ::MovieState)
+  internal val state = combine(isLoading, errors, movie, ::MovieState)
     .stateIn(viewModelScope, SharingStarted.Lazily, MovieState())
 
-  fun load() {
+  internal fun load() {
     viewModelScope.launch {
       isLoading.value = true
       runCatching {
@@ -77,7 +77,7 @@ internal class MovieViewModel @Inject constructor(
     }
   }
 
-  fun consumeError(uuid: String) {
+  internal fun consumeError(uuid: String) {
     errors.update { it - uuid }
   }
 }

@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
   api(projects.httpapi.public)
+  implementation(projects.inject.jvm)
   implementation(libs.square.okio)
   implementation(libs.square.okhttp)
   implementation(libs.square.okhttpLoggingInterceptor)

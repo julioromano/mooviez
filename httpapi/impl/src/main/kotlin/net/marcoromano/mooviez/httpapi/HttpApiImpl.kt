@@ -11,7 +11,7 @@ import retrofit2.create
 import java.io.File
 import java.util.Date
 
-public fun HttpApiImpl(
+internal fun HttpApiImpl(
   tmdbApiKey: String,
   baseUrl: String = "https://api.themoviedb.org/",
   cacheDir: File? = null,
