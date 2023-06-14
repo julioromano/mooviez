@@ -4,6 +4,6 @@ plugins {
 
 dependencies {
   api(projects.database.public)
-  implementation(projects.inject.jvm)
+  implementation(projects.inject)
   implementation(libs.square.sqlDelightJvm)
 }

@@ -128,7 +128,7 @@ dependencies {
   debugImplementation(libs.androidx.composeUiTooling)
   releaseImplementation(platform(libs.google.firebase.bom))
   releaseImplementation(libs.google.firebase.crashlytics)
-  implementation(projects.inject.android)
+  implementation(projects.inject)
   implementation(libs.kotlin.inject.runtime)
   ksp(libs.kotlin.inject.ksp)
   testImplementation(libs.junit)

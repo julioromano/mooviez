@@ -44,9 +44,9 @@ kotlin {
     freeCompilerArgs.addAll(
       "-Xexplicit-api=strict", // https://youtrack.jetbrains.com/issue/KT-37652
       "-P",
-      "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${project.buildDir.absolutePath}/compose_metrics",
+      "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${project.layout.buildDirectory.asFile.get().absolutePath}/compose_metrics",
       "-P",
-      "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${project.buildDir.absolutePath}/compose_reports",
+      "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${project.layout.buildDirectory.asFile.get().absolutePath}/compose_reports",
     )
   }
 }

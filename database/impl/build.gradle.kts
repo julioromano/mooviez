@@ -1,12 +1,31 @@
 plugins {
-  id("conventions.android")
+  id("conventions.kmp")
 }
 
-dependencies {
-  api(projects.database.public)
-  implementation(projects.inject.android)
-  implementation(libs.square.sqlDelightAndroid)
-  testImplementation(libs.robolectric)
+kotlin {
+  sourceSets {
+    commonMain {
+      dependencies {
+        api(projects.database.public)
+        implementation(projects.inject)
+      }
+    }
+    androidMain {
+      dependencies {
+        implementation(libs.square.sqlDelightAndroid)
+      }
+    }
+    androidUnitTest {
+      dependencies {
+        implementation(libs.robolectric)
+      }
+    }
+    jvmMain {
+      dependencies {
+        implementation(libs.square.sqlDelightJvm)
+      }
+    }
+  }
 }
 
 android {

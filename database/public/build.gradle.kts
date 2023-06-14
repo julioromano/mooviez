@@ -1,5 +1,5 @@
 plugins {
-  id("conventions.jvm")
+  id("conventions.kmp")
   id(libs.plugins.square.sqldelight.get().pluginId)
 }
 
@@ -8,7 +8,11 @@ sqldelight {
     create("Database") {
       packageName.set("net.marcoromano.mooviez.database")
       dialect(libs.square.sqlite18dialect)
-      schemaOutputDirectory.set(file("src/main/sqldelight/schema"))
+      schemaOutputDirectory.set(file("src/commonMain/sqldelight/schema"))
     }
   }
+}
+
+android {
+  namespace = "net.marcoromano.mooviez.database.api"
 }

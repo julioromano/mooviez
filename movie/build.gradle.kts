@@ -7,7 +7,7 @@ android {
 }
 
 dependencies {
-  implementation(projects.inject.android)
+  implementation(projects.inject)
   implementation(projects.widgets)
   implementation(projects.database.public)
   implementation(projects.httpapi.public)
