@@ -8,6 +8,7 @@ plugins {
   id("org.jetbrains.kotlin.multiplatform")
   id("com.google.devtools.ksp")
   id("com.android.library")
+  id("org.jetbrains.compose")
   id("org.jmailen.kotlinter")
 }
 
@@ -31,6 +32,9 @@ kotlin {
     commonMain {
       dependencies {
         implementation(libs.findLibrary("kotlinx.coroutines").get())
+        implementation(compose.runtime)
+        implementation(compose.foundation)
+        implementation(compose.material3)
         implementation(libs.findLibrary("kotlin.inject.runtime").get())
       }
     }
@@ -39,6 +43,11 @@ kotlin {
         implementation(libs.findLibrary("kotlin.test").get())
         implementation(libs.findLibrary("kotlin.test.junit").get())
         implementation(libs.findLibrary("kotlinx.coroutinesTest").get())
+      }
+    }
+    androidMain {
+      dependencies {
+        implementation(libs.findLibrary("androidx.lifecycleViewmodelCompose").get())
       }
     }
     val androidUnitTest by getting {

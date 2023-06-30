@@ -10,6 +10,7 @@ buildscript {
     classpath(libs.plugin.kotlinter)
     classpath(libs.plugin.playPublisher)
     classpath(libs.plugin.square.sqldelight)
+    classpath(libs.plugin.compose.multiplatform)
   }
 }
 
