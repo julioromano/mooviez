@@ -22,7 +22,7 @@ import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.inject.viewModel
 import net.marcoromano.mooviez.trending.widgets.trending.TrendingLazyVerticalGrid
 
-public typealias TrendingScreen = @Composable (navToDetail: (id: Long) -> Unit) -> Unit
+public typealias TrendingScreen = @Composable ((id: Long) -> Unit) -> Unit
 
 @Inject
 @Composable
