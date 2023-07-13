@@ -26,7 +26,7 @@ public class MovieNavigation(
       ),
     ) {
       movieScreen(
-        navBack = navBack,
+        navBack,
       )
     }
   }

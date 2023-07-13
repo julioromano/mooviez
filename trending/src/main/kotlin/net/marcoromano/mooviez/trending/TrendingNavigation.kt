@@ -23,7 +23,7 @@ public class TrendingNavigation(
       route = route,
     ) {
       trendingScreen(
-        navToDetail = navToDetail,
+        navToDetail,
       )
     }
   }

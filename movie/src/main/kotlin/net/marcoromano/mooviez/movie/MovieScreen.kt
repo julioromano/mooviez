@@ -30,9 +30,7 @@ import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.inject.viewModel
 import net.marcoromano.mooviez.movie.widgets.Movie
 
-public typealias MovieScreen = @Composable (
-  navBack: () -> Unit,
-) -> Unit
+public typealias MovieScreen = @Composable (() -> Unit) -> Unit
 
 @Inject
 @Composable
