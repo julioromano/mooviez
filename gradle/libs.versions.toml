@@ -89,7 +89,7 @@ androidx-media = "androidx.media:media:1.6.0"
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "androidx-navigation" }
 androidx-pagingCommon = { module = "androidx.paging:paging-common", version.ref = "androidx-paging" }
-androidx-pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha20"
+androidx-pagingCompose = "androidx.paging:paging-compose:3.2.0"
 androidx-pagingRuntime = { module = "androidx.paging:paging-runtime", version.ref = "androidx-paging" }
 androidx-palette = "androidx.palette:palette-ktx:1.0.0"
 androidx-testCore = { module = "androidx.test:core-ktx", version.ref = "androidx-test" }
