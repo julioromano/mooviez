@@ -1,9 +1,8 @@
 package net.marcoromano.mooviez.trending
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import com.google.accompanist.navigation.animation.composable
+import androidx.navigation.compose.composable
 import me.tatarka.inject.annotations.Inject
 
 @Inject
@@ -14,7 +13,6 @@ public class TrendingNavigation(
     public const val route: String = "feature"
   }
 
-  @OptIn(ExperimentalAnimationApi::class)
   public fun navGraphBuilder(
     navGraphBuilder: NavGraphBuilder,
     navToDetail: (id: Long) -> Unit,
