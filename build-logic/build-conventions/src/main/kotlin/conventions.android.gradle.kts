@@ -44,7 +44,7 @@ kotlin {
   explicitApi() // Has no effect. See https://youtrack.jetbrains.com/issue/KT-37652
   jvmToolchain(17)
   compilerOptions {
-    allWarningsAsErrors = true
+    allWarningsAsErrors.set(true)
     freeCompilerArgs.addAll(
       "-Xexplicit-api=strict", // https://youtrack.jetbrains.com/issue/KT-37652
       "-P",
