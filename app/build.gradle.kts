@@ -83,7 +83,7 @@ android {
 kotlin {
   jvmToolchain(17)
   compilerOptions {
-    allWarningsAsErrors = true
+    allWarningsAsErrors.set(true)
   }
 }
 
