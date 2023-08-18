@@ -57,9 +57,6 @@ android {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
   }
-  kotlinOptions {
-    allWarningsAsErrors = true
-  }
   buildFeatures {
     compose = true
     buildConfig = true
@@ -85,6 +82,9 @@ android {
 
 kotlin {
   jvmToolchain(17)
+  compilerOptions {
+    allWarningsAsErrors = true
+  }
 }
 
 androidComponents {
