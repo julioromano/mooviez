@@ -116,7 +116,7 @@ google-accompanistPermissions = { module = "com.google.accompanist:accompanist-p
 google-accompanistPlaceholderMaterial = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "google-accompanist" }
 google-accompanistSystemUi = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "google-accompanist" }
 google-firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
-google-firebase-bom = "com.google.firebase:firebase-bom:32.3.0"
+google-firebase-bom = "com.google.firebase:firebase-bom:32.3.1"
 google-firebase-config = { module = "com.google.firebase:firebase-config-ktx" }
 google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
 google-firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
