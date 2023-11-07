@@ -40,10 +40,7 @@ public fun TrendingScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Inject
 @Composable
-private fun TrendingScreen(
-  pager: Flow<PagingData<Movie>>,
-  navToDetail: (id: Long) -> Unit,
-) {
+private fun TrendingScreen(pager: Flow<PagingData<Movie>>, navToDetail: (id: Long) -> Unit) {
   val behavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
   Scaffold(
     modifier = Modifier.nestedScroll(behavior.nestedScrollConnection),

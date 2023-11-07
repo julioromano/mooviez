@@ -13,7 +13,5 @@ public interface HttpApi {
   ): TrendingMovies
 
   @GET("3/movie/{movie_id}")
-  public suspend fun movie(
-    @Path("movie_id") movieId: Long,
-  ): Movie
+  public suspend fun movie(@Path("movie_id") movieId: Long): Movie
 }

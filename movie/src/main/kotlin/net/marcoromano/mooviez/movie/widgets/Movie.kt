@@ -38,10 +38,7 @@ import net.marcoromano.mooviez.movie.demoMovieStateMovie
 import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable
-internal fun Movie(
-  modifier: Modifier = Modifier,
-  movie: MovieState.Movie,
-) {
+internal fun Movie(modifier: Modifier = Modifier, movie: MovieState.Movie) {
   Column(
     modifier = modifier,
   ) {
