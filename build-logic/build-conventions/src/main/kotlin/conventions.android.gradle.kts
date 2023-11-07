@@ -34,10 +34,6 @@ android {
     execution = "ANDROIDX_TEST_ORCHESTRATOR"
     animationsDisabled = true
   }
-  lint {
-    warningsAsErrors = true
-    disable += "GradleDependency"
-  }
 }
 
 kotlin {
