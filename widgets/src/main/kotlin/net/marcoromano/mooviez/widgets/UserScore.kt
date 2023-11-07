@@ -23,10 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-public fun UserScore(
-  modifier: Modifier = Modifier,
-  userScore: Int,
-) {
+public fun UserScore(modifier: Modifier = Modifier, userScore: Int) {
   val text = remember(userScore) {
     buildAnnotatedString {
       withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {

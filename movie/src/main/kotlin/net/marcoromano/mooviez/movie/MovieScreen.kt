@@ -51,10 +51,7 @@ public fun MovieScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MovieScreen(
-  state: MovieState,
-  navBack: () -> Unit,
-) {
+private fun MovieScreen(state: MovieState, navBack: () -> Unit) {
   val behavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
   Scaffold(
     modifier = Modifier.nestedScroll(behavior.nestedScrollConnection),

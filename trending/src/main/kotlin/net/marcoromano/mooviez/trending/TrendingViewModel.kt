@@ -22,7 +22,8 @@ public class TrendingViewModel(
   @OptIn(ExperimentalPagingApi::class)
   internal val pager = Pager(
     config = PagingConfig(
-      pageSize = 20, // 20 comes from tmdb api docs
+      // 20 comes from tmdb api docs
+      pageSize = 20,
       enablePlaceholders = true,
     ),
     remoteMediator = Mediator(httpApi = httpApi, database = database),
@@ -41,10 +42,7 @@ private class Mediator(
   private val httpApi: HttpApi,
   private val database: Database,
 ) : RemoteMediator<Int, Movie>() {
-  override suspend fun load(
-    loadType: LoadType,
-    state: PagingState<Int, Movie>,
-  ): MediatorResult {
+  override suspend fun load(loadType: LoadType, state: PagingState<Int, Movie>): MediatorResult {
     return try {
       val loadPage: Long? = when (loadType) {
         LoadType.REFRESH -> null

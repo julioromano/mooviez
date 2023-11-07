@@ -30,10 +30,7 @@ import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable
-internal fun Movie(
-  movie: Movie,
-  navToDetail: (id: Long) -> Unit,
-) {
+internal fun Movie(movie: Movie, navToDetail: (id: Long) -> Unit) {
   Column(
     modifier = Modifier
       .padding(8.dp)

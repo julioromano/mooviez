@@ -10,15 +10,12 @@ public class TrendingNavigation(
   private val trendingScreen: TrendingScreen,
 ) {
   public companion object {
-    public const val route: String = "feature"
+    public const val ROUTE: String = "feature"
   }
 
-  public fun navGraphBuilder(
-    navGraphBuilder: NavGraphBuilder,
-    navToDetail: (id: Long) -> Unit,
-  ) {
+  public fun navGraphBuilder(navGraphBuilder: NavGraphBuilder, navToDetail: (id: Long) -> Unit) {
     navGraphBuilder.composable(
-      route = route,
+      route = ROUTE,
     ) {
       trendingScreen(
         navToDetail,
@@ -27,6 +24,6 @@ public class TrendingNavigation(
   }
 
   public fun navigate(navController: NavController) {
-    navController.navigate(route)
+    navController.navigate(ROUTE)
   }
 }

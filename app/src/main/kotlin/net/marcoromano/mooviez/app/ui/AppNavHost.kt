@@ -15,7 +15,7 @@ fun AppNavHost() {
   val context = LocalContext.current
   NavHost(
     navController = navController,
-    startDestination = TrendingNavigation.route,
+    startDestination = TrendingNavigation.ROUTE,
     modifier = Modifier.fillMaxSize(),
     route = "mainGraph",
   ) {

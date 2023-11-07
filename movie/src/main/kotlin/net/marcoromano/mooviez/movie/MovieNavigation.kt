@@ -11,10 +11,7 @@ import me.tatarka.inject.annotations.Inject
 public class MovieNavigation(
   private val movieScreen: MovieScreen,
 ) {
-  public fun navGraphBuilder(
-    navGraphBuilder: NavGraphBuilder,
-    navBack: () -> Unit,
-  ) {
+  public fun navGraphBuilder(navGraphBuilder: NavGraphBuilder, navBack: () -> Unit) {
     navGraphBuilder.composable(
       route = "movie/{id}",
       arguments = listOf(
