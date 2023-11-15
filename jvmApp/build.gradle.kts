@@ -21,7 +21,7 @@ dependencies {
 
   implementation(projects.httpapi.impl)
   implementation(projects.database.impl)
-//  implementation(projects.trending) // TODO: Port to kmp
+  implementation(projects.trendingkmp)
 //  implementation(projects.movie) // TODO: Port to kmp
   implementation(projects.inject)
   implementation(libs.kotlin.inject.runtime)
