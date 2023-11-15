@@ -1,5 +1,5 @@
 plugins {
-  id("conventions.android")
+  id("conventions.kmp")
 }
 
 android {

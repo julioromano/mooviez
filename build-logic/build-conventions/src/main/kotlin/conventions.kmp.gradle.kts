@@ -34,6 +34,7 @@ kotlin {
         implementation(libs.findLibrary("kotlinx.coroutines").get())
         implementation(compose.runtime)
         implementation(compose.foundation)
+        implementation(compose.ui)
         implementation(compose.material3)
         implementation(libs.findLibrary("kotlin.inject.runtime").get())
       }
@@ -48,6 +49,12 @@ kotlin {
     androidMain {
       dependencies {
         implementation(libs.findLibrary("androidx.lifecycleViewmodelCompose").get())
+        implementation(libs.findLibrary("androidx.composeUiTooling").get())
+      }
+    }
+    jvmMain {
+      dependencies {
+        implementation(compose.preview)
       }
     }
     val androidUnitTest by getting {
