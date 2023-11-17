@@ -8,7 +8,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -22,25 +24,29 @@ public typealias TrendingScreen = @Composable ((id: Long) -> Unit) -> Unit
 @Inject
 @Composable
 public fun TrendingScreen(
-  trendingViewModel: () -> TrendingViewModel,
+  vm: TrendingViewModel,
   navToDetail: (id: Long) -> Unit,
 ) {
   val scope = rememberCoroutineScope()
-  val vm = remember { trendingViewModel() }
-  val movies = vm.movies(scope.coroutineContext).collectAsState(initial = emptyList())
+  val flow = remember { vm.state(scope) }
+  val state by flow.collectAsState()
   TrendingScreen(
-    state = TrendingState(movies = movies.value),
+    state = state,
+    refresh = vm::refresh,
     navToDetail = navToDetail,
   )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Inject
 @Composable
 internal fun TrendingScreen(
   state: TrendingState,
+  refresh: () -> Unit,
   navToDetail: (id: Long) -> Unit,
 ) {
+  LaunchedEffect(Unit) {
+    refresh()
+  }
   val behavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
   Scaffold(
     modifier = Modifier.nestedScroll(behavior.nestedScrollConnection),

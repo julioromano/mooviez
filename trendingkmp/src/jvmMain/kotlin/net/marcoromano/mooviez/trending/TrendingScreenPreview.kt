@@ -2,6 +2,7 @@ package net.marcoromano.mooviez.trending
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
+import kotlinx.collections.immutable.persistentListOf
 import net.marcoromano.mooviez.database.Movie
 
 @Preview
@@ -9,7 +10,7 @@ import net.marcoromano.mooviez.database.Movie
 private fun TrendingScreenPreview() {
   TrendingScreen(
     state = TrendingState(
-      movies = listOf(
+      movies = persistentListOf(
         Movie(
           position = 0,
           id = 0,
@@ -30,6 +31,7 @@ private fun TrendingScreenPreview() {
         ),
       ),
     ),
+    refresh = {},
     navToDetail = {},
   )
 }

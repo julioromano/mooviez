@@ -7,5 +7,6 @@ import net.marcoromano.mooviez.app.LocalApplicationComponent
 fun AppNavHost() {
   // TODO: create custom navhost that ties together all UI features into a navigable UI.
   val trendingScreen = LocalApplicationComponent.current.trendingScreen
+  val trendingViewModel = LocalApplicationComponent.current.trendingViewModel
   trendingScreen({ _ -> })
 }

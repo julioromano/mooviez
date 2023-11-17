@@ -11,7 +11,9 @@ kotlin {
         implementation(projects.database.public)
         implementation(projects.httpapi.public)
         implementation(libs.kamel)
+        implementation(libs.kotlinx.collections.immutable)
         implementation(libs.ktor.client.okhttp)
+        implementation(libs.square.molecule.runtime)
         implementation(libs.square.sqlDelightCoroutines)
       }
     }

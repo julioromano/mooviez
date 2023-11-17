@@ -6,8 +6,8 @@ public class JvmDatabaseFactory : DatabaseFactory {
   override fun create(): Database = Database(
     driver = JdbcSqliteDriver(
       url = JdbcSqliteDriver.IN_MEMORY,
-    ).apply {
-      Database.Schema.create(this)
-    },
+      // url = "jdbc:sqlite:mooviez.db", // TODO: use this for persistent storage pick right dir.
+      schema = Database.Schema,
+    ),
   )
 }
