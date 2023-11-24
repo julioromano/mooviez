@@ -37,12 +37,11 @@ android {
 }
 
 kotlin {
-  explicitApi() // Has no effect. See https://youtrack.jetbrains.com/issue/KT-37652
+  explicitApi()
   jvmToolchain(17)
   compilerOptions {
     allWarningsAsErrors.set(true)
     freeCompilerArgs.addAll(
-      "-Xexplicit-api=strict", // https://youtrack.jetbrains.com/issue/KT-37652
       "-P",
       "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${project.buildDir.absolutePath}/compose_metrics",
       "-P",
