@@ -7,8 +7,8 @@ import net.marcoromano.mooviez.database.Movie
 
 @Preview
 @Composable
-private fun TrendingScreenPreview() {
-  TrendingScreen(
+private fun TrendingPreview() {
+  Trending(
     state = TrendingState(
       movies = persistentListOf(
         Movie(
@@ -30,8 +30,7 @@ private fun TrendingScreenPreview() {
           release_date = "2022-02-03",
         ),
       ),
+      eventSink = {},
     ),
-    refresh = {},
-    navToDetail = {},
   )
 }

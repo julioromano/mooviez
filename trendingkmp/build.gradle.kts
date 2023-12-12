@@ -15,6 +15,7 @@ kotlin {
         implementation(libs.ktor.client.okhttp)
         implementation(libs.square.molecule.runtime)
         implementation(libs.square.sqlDelightCoroutines)
+        implementation(libs.circuit.foundation)
       }
     }
   }

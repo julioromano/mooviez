@@ -25,6 +25,7 @@ dependencies {
 //  implementation(projects.movie) // TODO: Port to kmp
   implementation(projects.inject)
   implementation(libs.kotlin.inject.runtime)
+  implementation(libs.circuit.foundation)
   ksp(libs.kotlin.inject.ksp)
   testImplementation(libs.junit)
 }
