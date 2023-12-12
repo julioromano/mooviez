@@ -11,6 +11,7 @@ androidx-paging = "3.2.1"
 androidx-test = "1.5.0"
 androidx-testEspresso = "3.5.1"
 androidx-workManager = "2.9.0"
+circuit = "0.17.1"
 coil = "2.5.0"
 compose-multiplatform = "1.5.11"
 compose-multiplatform-compiler = "1.5.11"
@@ -111,6 +112,14 @@ androidx-uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
 androidx-webkit = "androidx.webkit:webkit:1.9.0"
 androidx-workRuntime = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-workManager" }
 androidx-workTesting = { module = "androidx.work:work-testing", version.ref = "androidx-workManager" }
+circuit-backstack = { module = "com.slack.circuit:circuit-backstack", version.ref = "circuit" }
+circuit-runtime = { module = "com.slack.circuit:circuit-runtime", version.ref = "circuit" }
+circuit-runtime-presenter = { module = "com.slack.circuit:runtime-presenter", version.ref = "circuit" }
+circuit-runtime-ui = { module = "com.slack.circuit:runtime-ui", version.ref = "circuit" }
+circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
+circuit-test = { module = "com.slack.circuit:circuit-test", version.ref = "circuit" }
+circuit-overlay = { module = "com.slack.circuit:circuit-overlay", version.ref = "circuit" }
+circuit-retained = { module = "com.slack.circuit:circuit-retained", version.ref = "circuit" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 google-accompanistFlow = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "google-accompanist" }
