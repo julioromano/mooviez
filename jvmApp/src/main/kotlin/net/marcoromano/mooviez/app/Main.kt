@@ -8,7 +8,10 @@ import net.marcoromano.mooviez.app.ui.theme.AppTheme
 fun main() {
   val applicationComponent = ApplicationComponent::class.create()
   application {
-    Window(onCloseRequest = ::exitApplication) {
+    Window(
+      onCloseRequest = ::exitApplication,
+      title = "Mooviez", // TODO Localize
+    ) {
       AppTheme {
         AppUi(circuitComponent = applicationComponent)
       }
