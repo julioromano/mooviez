@@ -5,21 +5,25 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList
+import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.database.Database
 import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
+import net.marcoromano.mooviez.movie.MovieScreen
 
 @Inject
 public class TrendingPresenter(
   private val httpApi: HttpApi,
   private val database: Database,
-  private val globalScope: CoroutineScope,
+  private val scope: CoroutineScope,
+  @Assisted private val navigator: Navigator,
 ) : Presenter<TrendingState> {
   @Composable
   override fun present(): TrendingState {
@@ -35,14 +39,14 @@ public class TrendingPresenter(
       eventSink = {
         when (it) {
           is TrendingEvent.Refresh -> refresh()
-          is TrendingEvent.NavToDetails -> TODO()
+          is TrendingEvent.NavToDetails -> navigator.goTo(MovieScreen(it.id))
         }
       },
     )
   }
 
   private fun refresh() {
-    globalScope.launch {
+    scope.launch {
       updateMoviesInDbFromHttp()
     }
   }
