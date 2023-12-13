@@ -9,10 +9,19 @@ import net.marcoromano.mooviez.app.CircuitComponent
 import net.marcoromano.mooviez.trending.api.TrendingScreen
 
 @Composable
-fun AppUi(circuitComponent: CircuitComponent) {
+fun AppUi(
+  circuitComponent: CircuitComponent,
+  exitApplication: () -> Unit,
+) {
   CircuitCompositionLocals(circuitComponent.circuit) {
     val backstack = rememberSaveableBackStack { push(TrendingScreen) }
-    val navigator = rememberCircuitNavigator(backstack, onRootPop = {})
-    NavigableCircuitContent(navigator, backstack)
+    val navigator = rememberCircuitNavigator(
+      backstack = backstack,
+      onRootPop = exitApplication,
+    )
+    NavigableCircuitContent(
+      navigator = navigator,
+      backstack = backstack,
+    )
   }
 }

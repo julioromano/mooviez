@@ -13,7 +13,10 @@ fun main() {
       title = "Mooviez", // TODO Localize
     ) {
       AppTheme {
-        AppUi(circuitComponent = applicationComponent)
+        AppUi(
+          circuitComponent = applicationComponent,
+          exitApplication = ::exitApplication,
+        )
       }
     }
   }
