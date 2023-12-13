@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 
 @Preview
 @Composable
-private fun Preview() {
-  Movie(
+private fun MovieViewPreview() {
+  MovieView(
     state = MovieState(
       movie = demoMovieStateMovie(),
       eventSink = {},

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.AnnotatedString
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-public fun Movie(
+public fun MovieView(
   state: MovieState,
   modifier: Modifier = Modifier,
 ) {

@@ -8,7 +8,7 @@ import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
 import net.marcoromano.mooviez.movie.api.MovieScreen
 
-public interface MovieScreenComponent {
+public interface MovieComponent {
   @Provides
   @IntoSet
   public fun movieScreenPresenterFactory(
@@ -24,7 +24,7 @@ public interface MovieScreenComponent {
   @IntoSet
   public fun movieScreenUiFactory(): Ui.Factory = Ui.Factory { screen, _ ->
     when (screen) {
-      is MovieScreen -> ui<MovieState> { state, modifier -> Movie(state, modifier) }
+      is MovieScreen -> ui<MovieState> { state, modifier -> MovieView(state, modifier) }
       else -> null
     }
   }

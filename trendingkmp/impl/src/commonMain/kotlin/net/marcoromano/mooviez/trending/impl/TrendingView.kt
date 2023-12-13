@@ -16,7 +16,7 @@ import net.marcoromano.mooviez.trending.impl.widgets.trending.TrendingLazyVertic
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun Trending(
+internal fun TrendingView(
   state: TrendingState,
   modifier: Modifier = Modifier,
 ) {

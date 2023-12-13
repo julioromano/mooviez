@@ -1,21 +1,15 @@
 package net.marcoromano.mooviez.trending.impl
 
-import com.slack.circuit.runtime.CircuitUiEvent
 import com.slack.circuit.runtime.CircuitUiState
-import com.slack.circuit.runtime.screen.Screen
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import net.marcoromano.mooviez.database.Movie
 
 public data class TrendingState(
   val movies: ImmutableList<Movie>,
+  val isLoadingMore: Boolean,
   val eventSink: (TrendingEvent) -> Unit,
 ) : CircuitUiState
-
-public sealed interface TrendingEvent : CircuitUiEvent {
-  public data object Refresh : TrendingEvent
-  public data class NavToDetails(val id: Long) : TrendingEvent
-}
 
 public fun aTrendingState(): TrendingState = TrendingState(
   movies = persistentListOf(
@@ -38,5 +32,6 @@ public fun aTrendingState(): TrendingState = TrendingState(
       release_date = "2022-02-03",
     ),
   ),
+  isLoadingMore = false,
   eventSink = {},
 )
