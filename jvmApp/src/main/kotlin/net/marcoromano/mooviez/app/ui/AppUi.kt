@@ -6,7 +6,7 @@ import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.NavigableCircuitContent
 import com.slack.circuit.foundation.rememberCircuitNavigator
 import net.marcoromano.mooviez.app.CircuitComponent
-import net.marcoromano.mooviez.trending.TrendingScreen
+import net.marcoromano.mooviez.trending.api.TrendingScreen
 
 @Composable
 fun AppUi(circuitComponent: CircuitComponent) {
