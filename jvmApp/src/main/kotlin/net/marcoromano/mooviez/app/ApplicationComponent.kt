@@ -1,7 +1,8 @@
 package net.marcoromano.mooviez.app
 
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides
 import net.marcoromano.mooviez.database.DatabaseComponent
@@ -26,5 +27,6 @@ abstract class ApplicationComponent : CircuitComponent, DatabaseComponent, HttpA
   fun isDebugBuild(): IsDebugBuild = IsDebugBuild(false)
 
   @Provides
-  fun scope(): CoroutineScope = GlobalScope
+  @ApplicationScope
+  fun scope(): CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 }

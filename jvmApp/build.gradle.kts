@@ -25,6 +25,7 @@ dependencies {
   implementation(projects.moviekmp.impl)
   implementation(projects.inject)
   implementation(libs.kotlin.inject.runtime)
+  implementation(libs.kotlinx.coroutinesSwing)
   implementation(libs.circuit.foundation)
   ksp(libs.kotlin.inject.ksp)
   testImplementation(libs.junit)
