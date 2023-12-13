@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie
+package net.marcoromano.mooviez.movie.impl
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

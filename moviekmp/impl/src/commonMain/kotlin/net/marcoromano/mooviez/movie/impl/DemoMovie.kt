@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie
+package net.marcoromano.mooviez.movie.impl
 
 import androidx.compose.ui.text.AnnotatedString
 import net.marcoromano.mooviez.httpapi.Movie

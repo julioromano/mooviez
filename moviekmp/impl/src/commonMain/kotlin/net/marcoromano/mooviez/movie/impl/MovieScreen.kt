@@ -1,13 +1,9 @@
-package net.marcoromano.mooviez.movie
+package net.marcoromano.mooviez.movie.impl
 
 import androidx.compose.ui.text.AnnotatedString
 import com.slack.circuit.runtime.CircuitUiEvent
 import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.screen.Screen
-
-public data class MovieScreen(
-  val movieId: Long,
-) : Screen
 
 public data class MovieState(
   val isLoading: Boolean = false,

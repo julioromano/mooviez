@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie
+package net.marcoromano.mooviez.movie.impl
 
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
@@ -6,6 +6,7 @@ import com.slack.circuit.runtime.ui.Ui
 import com.slack.circuit.runtime.ui.ui
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
+import net.marcoromano.mooviez.movie.api.MovieScreen
 
 public interface MovieScreenComponent {
   @Provides

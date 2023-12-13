@@ -16,7 +16,7 @@ import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.database.Database
 import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
-import net.marcoromano.mooviez.movie.MovieScreen
+import net.marcoromano.mooviez.movie.api.MovieScreen
 
 @Inject
 public class TrendingPresenter(

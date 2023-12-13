@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie
+package net.marcoromano.mooviez.movie.impl
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -60,7 +60,7 @@ public fun Movie(
       ) {
         state.movie?.let {
           item {
-            net.marcoromano.mooviez.movie.widgets.Movie(
+            net.marcoromano.mooviez.movie.impl.widgets.Movie(
               movie = it,
             )
           }

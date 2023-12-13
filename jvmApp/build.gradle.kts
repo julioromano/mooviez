@@ -22,7 +22,7 @@ dependencies {
   implementation(projects.httpapi.impl)
   implementation(projects.database.impl)
   implementation(projects.trendingkmp)
-  implementation(projects.moviekmp)
+  implementation(projects.moviekmp.impl)
   implementation(projects.inject)
   implementation(libs.kotlin.inject.runtime)
   implementation(libs.circuit.foundation)

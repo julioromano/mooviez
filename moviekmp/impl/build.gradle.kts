@@ -6,6 +6,7 @@ kotlin {
   sourceSets {
     commonMain {
       dependencies {
+        api(projects.moviekmp.api)
         implementation(projects.inject)
         implementation(projects.widgets)
         implementation(projects.database.public)
@@ -21,5 +22,5 @@ kotlin {
 }
 
 android {
-  namespace = "net.marcoromano.mooviez.movie"
+  namespace = "net.marcoromano.mooviez.movie.impl"
 }

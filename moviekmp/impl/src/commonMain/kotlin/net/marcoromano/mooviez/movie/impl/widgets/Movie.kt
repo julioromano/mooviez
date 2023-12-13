@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.movie.widgets
+package net.marcoromano.mooviez.movie.impl.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
-import net.marcoromano.mooviez.movie.MovieState
+import net.marcoromano.mooviez.movie.impl.MovieState
 import net.marcoromano.mooviez.widgets.UserScore
 
 @Composable

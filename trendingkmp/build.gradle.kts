@@ -10,7 +10,7 @@ kotlin {
         implementation(projects.widgets)
         implementation(projects.database.public)
         implementation(projects.httpapi.public)
-        implementation(projects.moviekmp) // TODO: Import only the screen entry point
+        implementation(projects.moviekmp.api)
         implementation(libs.kamel)
         implementation(libs.kotlinx.collections.immutable)
         implementation(libs.ktor.client.okhttp)

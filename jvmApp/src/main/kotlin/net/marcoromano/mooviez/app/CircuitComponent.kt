@@ -5,7 +5,7 @@ import com.slack.circuit.runtime.presenter.Presenter
 import com.slack.circuit.runtime.ui.Ui
 import me.tatarka.inject.annotations.Provides
 import net.marcoromano.mooviez.inject.ApplicationScope
-import net.marcoromano.mooviez.movie.MovieScreenComponent
+import net.marcoromano.mooviez.movie.impl.MovieScreenComponent
 import net.marcoromano.mooviez.trending.TrendingScreenComponent
 
 interface CircuitComponent : TrendingScreenComponent, MovieScreenComponent {
