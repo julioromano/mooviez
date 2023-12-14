@@ -20,6 +20,7 @@ kotlin {
     compilations.all {
       kotlinOptions {
         allWarningsAsErrors = true
+        freeCompilerArgs += "-Xexpect-actual-classes" // https://youtrack.jetbrains.com/issue/KT-61573
       }
     }
   }

@@ -7,6 +7,7 @@ kotlin {
     commonMain {
       dependencies {
         implementation(libs.circuit.runtime)
+        implementation(projects.parcelable)
       }
     }
   }
