@@ -19,6 +19,7 @@ dependencies {
   implementation(compose.runtime)
   implementation(compose.material3)
 
+  implementation(projects.theme)
   implementation(projects.httpapi.impl)
   implementation(projects.database.impl)
   implementation(projects.trendingkmp.impl)

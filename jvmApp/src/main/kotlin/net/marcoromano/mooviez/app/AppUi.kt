@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.app.ui
+package net.marcoromano.mooviez.app
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.backstack.rememberSaveableBackStack

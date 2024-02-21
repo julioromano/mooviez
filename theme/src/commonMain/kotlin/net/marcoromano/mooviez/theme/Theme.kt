@@ -1,4 +1,4 @@
-package net.marcoromano.mooviez.app.ui.theme
+package net.marcoromano.mooviez.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -71,16 +71,12 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun AppTheme(
+public fun AppTheme(
   darkTheme: Boolean = isSystemInDarkTheme(),
   content: @Composable () -> Unit,
 ) {
-  val colorScheme = when {
-    darkTheme -> DarkColorScheme
-    else -> LightColorScheme
-  }
   MaterialTheme(
-    colorScheme = colorScheme,
+    colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme,
     typography = Typography,
     content = content,
   )
