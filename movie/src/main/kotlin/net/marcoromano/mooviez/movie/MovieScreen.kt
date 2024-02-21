@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -62,7 +63,7 @@ private fun MovieScreen(state: MovieState, navBack: () -> Unit) {
         },
         navigationIcon = {
           IconButton(onClick = navBack) {
-            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+            Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
           }
         },
         scrollBehavior = behavior,

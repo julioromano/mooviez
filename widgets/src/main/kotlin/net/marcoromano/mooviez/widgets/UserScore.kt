@@ -48,12 +48,12 @@ public fun UserScore(modifier: Modifier = Modifier, userScore: Int) {
       contentAlignment = Alignment.Center,
     ) {
       CircularProgressIndicator(
-        progress = 1f,
+        progress = { 1f },
         color = ProgressIndicatorDefaults.circularColor.copy(alpha = 0.5f),
         strokeWidth = 3.dp,
       )
       CircularProgressIndicator(
-        progress = userScore / 100f,
+        progress = { userScore / 100f },
         strokeWidth = 3.dp,
       )
       Text(
