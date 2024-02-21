@@ -27,7 +27,7 @@ internal class PagedDataImpl<T>(
   override operator fun get(index: Int): T? {
     if (itemCount - index < THRESHOLD && !loadingMore) {
       loadingMore = true
-      pager.loadMore()
+      pager.loadNextPage()
     }
     return windowSnapshot.getOrNull(index)
   }

@@ -13,8 +13,18 @@ public interface Pager<T> {
   public val pagedData: Flow<PagedData<T>>
 }
 
+/**
+ * A factory function for creating a [Pager].
+ * @param loadPage A function that loads a page of data.
+ */
+public fun <T> Pager(
+  loadPage: suspend (pageNumber: Int) -> Page<T>?,
+): Pager<T> = PagerImpl(
+  loadPage = loadPage,
+)
+
 internal class PagerImpl<T>(
-  private val loadMore: suspend () -> List<T>?,
+  private val loadPage: suspend (pageNumber: Int) -> Page<T>?,
   dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : Pager<T> {
 
@@ -22,24 +32,29 @@ internal class PagerImpl<T>(
   private val scope = CoroutineScope(SupervisorJob() + dispatcher)
 
   // Should be equally good for random access and append/prepend.
-  private val window = ArrayDeque<T>()
+  private val pages = ArrayDeque<Page<T>>()
 
-  private val _pagedData = MutableStateFlow(PagedDataImpl(this, window.toList()))
+  private val _pagedData = MutableStateFlow(createPagedDataImpl())
 
   override val pagedData: Flow<PagedData<T>> = _pagedData.asStateFlow()
 
   init {
     // This is a bit of a hack, but it's the only way to get the first page to load immediately.
-    loadMore()
+    loadNextPage()
   }
 
-  internal fun loadMore() {
+  internal fun loadNextPage() {
     scope.launch {
-      val moreData = loadMore.invoke()
-      if (moreData != null) {
-        window.addAll(moreData)
-        _pagedData.value = PagedDataImpl(this@PagerImpl, window.toList())
+      val nextPage = loadPage(pages.size + 1)
+      if (nextPage != null) {
+        pages.add(nextPage)
+        _pagedData.value = createPagedDataImpl()
       }
     }
   }
+
+  private fun createPagedDataImpl() = PagedDataImpl(
+    pager = this,
+    windowSnapshot = pages.map { it.data }.flatten(),
+  )
 }

@@ -9,21 +9,18 @@ import org.junit.Test
 class PagerTest {
   @Test
   fun `should load a paged list incrementally`() = runTest {
-    val loader = SequenceLoader(
-      sequence {
-        yield((0..9).toList())
-        yield((10..19).toList())
-        yield((20..29).toList())
-        yield((30..39).toList())
-      },
+    val loader = PageLoader(
+      listOf(
+        Page(1, (0..9).toList()),
+        Page(2, (10..19).toList()),
+        Page(3, (20..29).toList()),
+        Page(4, (30..39).toList()),
+      ),
     )
-    val pager = PagerImpl(
-      loadMore = { loader.loadMore() },
+    val pager = Pager(
+      loadPage = { loader.loadMore(it) },
     )
     pager.pagedData.test {
-      awaitItem().let { item ->
-        item.itemCount.shouldBe(0)
-      }
       awaitItem().let { item ->
         item.itemCount.shouldBe(10)
         item[0].shouldBe(0)
@@ -48,24 +45,9 @@ class PagerTest {
   }
 }
 
-/**
- * Produces a list of integers and allows loading more of them in chunks of 10.
- */
-class ChunkedLoader(private val data: List<Int>) {
-  private var index = 0
-  suspend fun loadMore(): List<Int>? {
+class PageLoader<T>(private val data: List<Page<T>>) {
+  suspend fun loadMore(pageNumber: Int): Page<T>? {
     delay(1)
-    if (index >= data.size) return null
-    val chunk = data.subList(index, index + 10)
-    index += 10
-    return chunk
-  }
-}
-
-class SequenceLoader<T>(data: Sequence<List<T>>) {
-  private val iterator = data.iterator()
-  suspend fun loadMore(): List<T>? {
-    delay(1)
-    return if (iterator.hasNext()) iterator.next() else null
+    return data.getOrNull(pageNumber - 1)
   }
 }
