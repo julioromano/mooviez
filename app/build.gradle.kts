@@ -121,7 +121,6 @@ dependencies {
   implementation(libs.androidx.lifecycleRuntime)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.bundles.androidx.compose)
-  implementation(libs.google.accompanistSystemUi)
   debugImplementation(libs.square.leakcanary)
   implementation(platform(libs.androidx.compose.bom))
   debugImplementation(libs.androidx.composeUiTestManifest)
