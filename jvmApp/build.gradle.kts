@@ -24,6 +24,7 @@ dependencies {
   implementation(projects.trendingkmp.impl)
   implementation(projects.moviekmp.impl)
   implementation(projects.inject)
+  implementation(projects.coroutines.impl)
   implementation(libs.kotlin.inject.runtime)
   implementation(libs.kotlinx.coroutinesSwing)
   implementation(libs.circuit.foundation)
