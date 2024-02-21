@@ -18,6 +18,7 @@ internal class PagerImpl<T>(
   dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : Pager<T> {
 
+  // TODO: Don't use a dedicated scope. It should be possible to use the scope of the caller.
   private val scope = CoroutineScope(SupervisorJob() + dispatcher)
 
   // Should be equally good for random access and append/prepend.
