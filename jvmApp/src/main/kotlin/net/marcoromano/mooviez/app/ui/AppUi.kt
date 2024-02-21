@@ -14,14 +14,14 @@ fun AppUi(
   exitApplication: () -> Unit,
 ) {
   CircuitCompositionLocals(circuitComponent.circuit) {
-    val backstack = rememberSaveableBackStack { push(TrendingScreen) }
+    val backstack = rememberSaveableBackStack(root = TrendingScreen)
     val navigator = rememberCircuitNavigator(
-      backstack = backstack,
+      backStack = backstack,
       onRootPop = exitApplication,
     )
     NavigableCircuitContent(
       navigator = navigator,
-      backstack = backstack,
+      backStack = backstack,
     )
   }
 }
