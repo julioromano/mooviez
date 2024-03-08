@@ -50,7 +50,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       - name: Create Github release and upload artifacts
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           target_commitish: ${{ env.COMMIT_HASH }}
           tag_name: '${{ env.VERSION_NAME }}'
