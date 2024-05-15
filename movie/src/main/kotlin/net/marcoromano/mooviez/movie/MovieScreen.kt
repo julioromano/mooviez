@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -31,23 +30,21 @@ import me.tatarka.inject.annotations.Inject
 import net.marcoromano.mooviez.inject.viewModel
 import net.marcoromano.mooviez.movie.widgets.Movie
 
-public typealias MovieScreen = @Composable (() -> Unit) -> Unit
-
-@Inject
-@Composable
-public fun MovieScreen(
-  movieViewModel: (handle: SavedStateHandle) -> MovieViewModel,
-  navBack: () -> Unit,
+public class MovieScreen @Inject constructor(
+  private val movieViewModel: (handle: SavedStateHandle) -> MovieViewModel,
 ) {
-  val vm = viewModel { movieViewModel(it) }
-  val state by vm.state.collectAsStateWithLifecycle()
-  LaunchedEffect(Unit) {
-    if (state.movie == null) vm.load()
+  @Composable
+  public fun Composable(navBack: () -> Unit) {
+    val vm = viewModel { movieViewModel(it) }
+    val state by vm.state.collectAsStateWithLifecycle()
+    LaunchedEffect(Unit) {
+      if (state.movie == null) vm.load()
+    }
+    MovieScreen(
+      state = state,
+      navBack = navBack,
+    )
   }
-  MovieScreen(
-    state = state,
-    navBack = navBack,
-  )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

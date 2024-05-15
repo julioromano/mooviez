@@ -17,7 +17,7 @@ public class TrendingNavigation(
     navGraphBuilder.composable(
       route = ROUTE,
     ) {
-      trendingScreen(
+      trendingScreen.Composable(
         navToDetail,
       )
     }

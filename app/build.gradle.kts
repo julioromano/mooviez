@@ -6,6 +6,7 @@ import java.time.Instant
 plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.kotlin.compose.get().pluginId)
   id(libs.plugins.google.ksp.get().pluginId)
   id(libs.plugins.google.services.get().pluginId)
   id(libs.plugins.google.firebase.crashlytics.get().pluginId)
@@ -67,7 +68,6 @@ android {
     }
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     useLiveLiterals = true
   }
   testOptions {

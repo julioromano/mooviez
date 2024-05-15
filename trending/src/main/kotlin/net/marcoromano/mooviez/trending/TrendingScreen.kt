@@ -22,23 +22,20 @@ import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.inject.viewModel
 import net.marcoromano.mooviez.trending.widgets.trending.TrendingLazyVerticalGrid
 
-public typealias TrendingScreen = @Composable ((id: Long) -> Unit) -> Unit
-
-@Inject
-@Composable
-public fun TrendingScreen(
-  trendingViewModel: () -> TrendingViewModel,
-  navToDetail: (id: Long) -> Unit,
+public class TrendingScreen @Inject constructor(
+  private val trendingViewModel: () -> TrendingViewModel,
 ) {
-  val vm = viewModel { trendingViewModel() }
-  TrendingScreen(
-    pager = vm.pager,
-    navToDetail = navToDetail,
-  )
+  @Composable
+  public fun Composable(navToDetail: (id: Long) -> Unit) {
+    val vm = viewModel { trendingViewModel() }
+    TrendingScreen(
+      pager = vm.pager,
+      navToDetail = navToDetail,
+    )
+  }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Inject
 @Composable
 private fun TrendingScreen(pager: Flow<PagingData<Movie>>, navToDetail: (id: Long) -> Unit) {
   val behavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
