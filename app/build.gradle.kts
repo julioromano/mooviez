@@ -37,7 +37,7 @@ android {
     testInstrumentationRunnerArguments["clearPackageData"] = "true"
   }
   buildTypes {
-    val tmdbApiKey = System.getenv("TMDB_API_KEY") ?: gradleLocalProperties(rootDir).getProperty("tmdbApiKey")
+    val tmdbApiKey = System.getenv("TMDB_API_KEY") ?: gradleLocalProperties(rootDir, providers).getProperty("tmdbApiKey")
     buildTypes.forEach {
       it.buildConfigField("String", "TMDB_API_KEY", "\"${tmdbApiKey}\"")
     }
