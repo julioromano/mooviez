@@ -23,6 +23,9 @@ public fun <T> Pager(
   loadPage = loadPage,
 )
 
+/**
+ * TODO: Support purging of pages to reduce memory footprint.
+ */
 internal class PagerImpl<T>(
   private val loadPage: suspend (pageNumber: Int) -> Page<T>?,
   dispatcher: CoroutineDispatcher = Dispatchers.IO,
