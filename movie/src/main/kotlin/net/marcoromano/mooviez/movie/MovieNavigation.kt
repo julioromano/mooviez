@@ -20,7 +20,7 @@ public class MovieNavigation(
         },
       ),
     ) {
-      movieScreen(
+      movieScreen.Composable(
         navBack,
       )
     }
