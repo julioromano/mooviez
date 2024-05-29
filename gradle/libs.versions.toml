@@ -50,7 +50,7 @@ square-sqldelight = { id = "app.cash.sqldelight", version.ref = "square-sqlDelig
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
-androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
+androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
 androidx-browser = "androidx.browser:browser:1.8.0"
 androidx-collection = "androidx.collection:collection-ktx:1.4.0"
 androidx-compose-bom = "androidx.compose:compose-bom:2024.05.00"
