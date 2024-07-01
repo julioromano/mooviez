@@ -17,8 +17,5 @@ public data class Movie(
   val genres: List<Genre>,
 ) {
   @JsonClass(generateAdapter = true)
-  public data class Genre(
-    val id: Long,
-    val name: String,
-  )
+  public data class Genre(val id: Long, val name: String)
 }

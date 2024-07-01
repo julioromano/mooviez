@@ -15,10 +15,7 @@ import net.marcoromano.mooviez.database.Movie
 import net.marcoromano.mooviez.httpapi.HttpApi
 
 @Inject
-public class TrendingViewModel(
-  httpApi: HttpApi,
-  private val database: Database,
-) : ViewModel() {
+public class TrendingViewModel(httpApi: HttpApi, private val database: Database) : ViewModel() {
   @OptIn(ExperimentalPagingApi::class)
   internal val pager = Pager(
     config = PagingConfig(
@@ -38,10 +35,8 @@ public class TrendingViewModel(
 }
 
 @OptIn(ExperimentalPagingApi::class)
-private class Mediator(
-  private val httpApi: HttpApi,
-  private val database: Database,
-) : RemoteMediator<Int, Movie>() {
+private class Mediator(private val httpApi: HttpApi, private val database: Database) :
+  RemoteMediator<Int, Movie>() {
   override suspend fun load(loadType: LoadType, state: PagingState<Int, Movie>): MediatorResult {
     return try {
       val loadPage: Long? = when (loadType) {

@@ -15,9 +15,9 @@ import net.marcoromano.mooviez.trending.TrendingNavigation
 
 @ApplicationScope
 @Component
-abstract class ApplicationComponent(
-  private val application: Application,
-) : DatabaseComponent, HttpApiComponent {
+abstract class ApplicationComponent(private val application: Application) :
+  DatabaseComponent,
+  HttpApiComponent {
   abstract val trendingNavigation: TrendingNavigation
   abstract val movieNavigation: MovieNavigation
 

@@ -6,9 +6,7 @@ import androidx.navigation.compose.composable
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-public class TrendingNavigation(
-  private val trendingScreen: TrendingScreen,
-) {
+public class TrendingNavigation(private val trendingScreen: TrendingScreen) {
   public companion object {
     public const val ROUTE: String = "feature"
   }

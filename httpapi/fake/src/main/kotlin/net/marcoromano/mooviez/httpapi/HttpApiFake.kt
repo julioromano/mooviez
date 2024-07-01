@@ -12,18 +12,14 @@ internal class HttpApiFake : HttpApi {
     mediaType: MediaType,
     timeWindow: TimeWindow,
     page: Int,
-  ): TrendingMovies {
-    return when (page) {
-      0 -> error("Pages start from number 1")
-      1 -> readJson("trending_p1")
-      2 -> readJson("trending_p2")
-      else -> readJson("trending_p3")
-    }
+  ): TrendingMovies = when (page) {
+    0 -> error("Pages start from number 1")
+    1 -> readJson("trending_p1")
+    2 -> readJson("trending_p2")
+    else -> readJson("trending_p3")
   }
 
-  override suspend fun movie(movieId: Long): Movie {
-    return readJson("movie")
-  }
+  override suspend fun movie(movieId: Long): Movie = readJson("movie")
 }
 
 @OptIn(ExperimentalStdlibApi::class)
