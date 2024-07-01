@@ -8,9 +8,7 @@ import androidx.navigation.navArgument
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-public class MovieNavigation(
-  private val movieScreen: MovieScreen,
-) {
+public class MovieNavigation(private val movieScreen: MovieScreen) {
   public fun navGraphBuilder(navGraphBuilder: NavGraphBuilder, navBack: () -> Unit) {
     navGraphBuilder.composable(
       route = "movie/{id}",
