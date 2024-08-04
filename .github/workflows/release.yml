@@ -39,7 +39,7 @@ jobs:
           echo $STORE_FILE | base64 --decode > app/.secrets/keystore.jks
           echo $PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
       - name: Setup Gradle and publish release bundle to Play Store
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         id: gradle
         with:
           gradle-home-cache-cleanup: true
