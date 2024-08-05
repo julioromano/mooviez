@@ -38,13 +38,13 @@ jobs:
           mkdir -p app/.secrets
           echo $STORE_FILE | base64 --decode > app/.secrets/keystore.jks
           echo $PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
-      - name: Setup Gradle and publish release bundle to Play Store
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         id: gradle
         with:
           gradle-home-cache-cleanup: true
           cache-read-only: true
-      - name: Build release artifact and upload it to Play Store
+      - name: Build release bundle and publish it to Play Store
         run: ./gradlew :app:bundleRelease :app:uploadCrashlyticsMappingFileRelease :app:publishReleaseBundle
         env:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
