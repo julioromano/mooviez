@@ -44,7 +44,8 @@ jobs:
         with:
           gradle-home-cache-cleanup: true
           cache-read-only: true
-          arguments: :app:bundleRelease :app:uploadCrashlyticsMappingFileRelease :app:publishReleaseBundle
+      - name: Build release artifact and upload it to Play Store
+        run: ./gradlew :app:bundleRelease :app:uploadCrashlyticsMappingFileRelease :app:publishReleaseBundle
         env:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
