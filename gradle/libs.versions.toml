@@ -166,7 +166,7 @@ square-sqlDelightAndroidPaging3 = { module = "app.cash.sqldelight:androidx-pagin
 square-sqlDelightCoroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
 square-sqlDelightJvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
 square-sqlite18dialect = { module = "app.cash.sqldelight:sqlite-3-18-dialect", version.ref = "square-sqlDelight" }
-square-turbine = "app.cash.turbine:turbine:1.1.0"
+square-turbine = "app.cash.turbine:turbine:1.2.0"
 
 [bundles]
 androidx-compose = ["androidx-composeAnimation", "androidx-composeFoundation", "androidx-composeMaterial3", "androidx-composeMaterial3WindowSize", "androidx-composeMaterialIcons", "androidx-composeMaterialIconsExt", "androidx-composeRuntime", "androidx-composeUi", "androidx-composeUiGraphics", "androidx-composeUiToolingPreview"]
