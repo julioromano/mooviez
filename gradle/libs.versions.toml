@@ -26,7 +26,7 @@ plugin-google-services = "4.4.3"
 plugin-kotlinter = "5.1.1"
 plugin-playPublisher = "3.12.1"
 square-moshi = "1.15.2"
-square-okhttp = "4.12.0"
+square-okhttp = "5.0.0"
 square-retrofit = "3.0.0"
 square-sqlDelight = "2.1.0"
 
