@@ -25,7 +25,7 @@ jobs:
           distribution: 'oracle'
           java-version: '17'
       - name: Checkout repository at ${{ github.event.inputs.commit }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.inputs.commit }}
       - name: Validate Gradle Wrapper
