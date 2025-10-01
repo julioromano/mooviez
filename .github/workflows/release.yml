@@ -39,7 +39,7 @@ jobs:
           echo $STORE_FILE | base64 --decode > app/.secrets/keystore.jks
           echo $PLAYSTORE_FILE | base64 --decode > app/.secrets/playstore.json
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
         id: gradle
         with:
           gradle-home-cache-cleanup: true
