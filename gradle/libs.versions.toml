@@ -28,7 +28,7 @@ plugin-playPublisher = "3.12.2"
 square-moshi = "1.15.2"
 square-okhttp = "5.3.0"
 square-retrofit = "3.0.0"
-square-sqlDelight = "2.1.0"
+square-sqlDelight = "2.2.1"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "plugin-android" }
